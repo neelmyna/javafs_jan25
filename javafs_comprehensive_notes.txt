@@ -1,0 +1,113 @@
+On top of the window (slightly on right), you can see a + button
+Click the new repo button (plus button) -> New Repository
+
+In the new window, give the Repo name: javafs_jan25
+
+Description: This repo was created for the Java full stack learning using html-css-js as the FE, SpringBoot as BE and MongoDb as the Data Source.
+
+Keep the Repo Public
+
+Select the Checkbox "Add readme File"
+
+Click the green button "create repo"
+
+
+Use of Github
+HTML
+CSS
+JS
+MongoDb
+Bootstrap
+Java (important concepts of OOP, Exception handling and Collections) and problem solving
+JSP-Servlets
+SpringBoot
+Project Building (CRUD Operations)
+	Java-MongoDb driver-MongoDb (BE-DB)
+	SpringBoot-MongoDb			(BE-DB)
+	HTML-CSS-JS JSP-Servlets MongoDb (FE-BE-DB)
+	Bootstrap - SpringBoot - MongoDb (FE-BE-DB)
+
+Further Learning:
+ReactJs
+MySql
+Node-Express
+
+ReactJs - SpringBoot - MongoDb
+ReactJs - Node-Express - MongoDb
+ReactJs - SpringBoot - MySql
+ReactJs - Node-Express - MySql
+
+Angular - SpringBoot - MongoDb
+Angular - Node-Express - MongoDb
+Angular - SpringBoot - MySql
+Angular - Node-Express - MySql
+
+https://github.com/neelmyna/javafs_jan25
+
+
+Steps to create Personal Access Token (PAT):
+1. Click on your profile picture (Top right corner)
+2. Scroll down and Click Settings
+3. In the new window, scroll down and click developer settings (left bottom corner)
+4. Now, in the new window on top right, click -> Personal access tokens -> select Classic
+5. In the new window, Click Generate New Token -> select Tokens Classic
+6. In the new window, give:
+	Description: "This PAT was created for my learning full stack development technologies"
+	Expiration: Select No Expiry
+	Later fully scroll down (do not select any check boxes) and click the button "create PAT"
+	
+NOTE: Copy the PAT that is created and mail it to yourself (Keep it confidential) and see that it is always with you (do not lose the PAT)
+
+Arrangement and Organising Software in our Computer:
+We must neatly aarange the files, software and Apps in our laptops.
+Use C drive only to store the OS and the software
+Use D drive only for your learning (projects and programs and material)
+Use E drive for your personal (Movies, music, photos etc)
+
+1. Create a folder named "software" in C drive 
+	1. create a folder for every software or app you are going to install
+	2. store the downloaded installer files (.msi files) in these respective folders
+	3. Now double click on the installer file and install it.
+
+Download Git:
+Google: Download git
+Use the link: https://git-scm.com/downloads
+Select the OS and download the installer file
+Cut the installer file from the "downloads" folder and paste it inside C:/software/git folder
+Now dowuble click and install it
+Note that you must get the CLI/Command/App "git"
+$ git --version (This is to check the version number of the CLI and also to check if the App is available)
+
+Create a folder named "learning" in the drive D or E (which ever you use for learning purpose)
+
+Inside learning, create the folders for all the technologies that you are learning
+	python
+	java
+	javafs
+	mongodb
+D:/learning/javafs
+
+GIT COMMANDS:
+
+$ git status
+To check the status of my repo (local repo)
+
+$ git add
+This command will mark all the files that need to be updated to the remote repo
+
+$ git add .
+This command will mark all the files from the current folder/path/directory that need to be updated to the remote repo.
+
+$ git commit -m "p4 and p5 programs are added"
+
+
+$ git push origin main
+
+
+$ git clone https://github.com/neelmyna/javafs_jan25
+
+
+$ git clone https://PAT@github.com/neelmyna/javafs_jan25
+
+
+
