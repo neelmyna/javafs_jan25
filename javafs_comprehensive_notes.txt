@@ -109,5 +109,102 @@ $ git clone https://github.com/neelmyna/javafs_jan25
 
 $ git clone https://PAT@github.com/neelmyna/javafs_jan25
 
+MongoDB database Notes:
 
+MONGO DB NOTES:
+https://www.mongodb.com/developer/products/mongodb/cheat-sheet/
+
+1. MongoDB is a Document based NOSQL (Not Only SQL). We can do RDBMS kind of DB creation and at the same time, Non-RDBMS DB can also be created.
+2. MongoDB uses JS syntax. This helps us in developing the End-to-End Full Stack App easily. Because, we may choose the Front-End and Back-End technologies which are also JS based.
+3. To work with MongoDB, we are given with a global object named "db" which we can call as mongoDB instance. Using this instance, we can call the library methods (built in functions).
+4. Since it is Djkn  ocument based, we can create the data in an Array, Multi Dimensional Array and also in Hierarchical DS (Tree).
+5. General purpose DB, Schema less model or flexible schema design, native aggregation, scalability and load balancing algorithms are inherent to mongo db, security features are available, mapReduce, Atlas.
+6. MongoDB is Document Based and Schema Free DB
+Other Examples for NoSQL DBs are:
+Graph based
+Document Based
+Key-Value Based
+Wide-Column Based
+
+SIMILARITY:
+RDBMS				MongoDB
+database			database
+Tables				collections
+row/tuple/object	document/record/object
+
+WORKING OF MONGO-DB
+-> It stores the data in J-son Format.
+-> The data is stored using Key-Value pairs
+-> In the back-end, the Json data is converted into Binary which we call as Bey-Son
+-> Data are stored as Documents. These Documents can be nested. And the documents are in turn are stored in collections.
+-> The documents thus are independent from documents in other collections.
+Since Mongo-DB is schema less, the data can be different and need not be similar.
+---------------------------------------------------------------
+INSTALLATION OF MongoDB ON WINDOWS:
+-> mongodb.com
+-> software -> community server -> download msi -> follow the steps and install
+-> install mongosh
+-> install mongodb compass
+
+* C:\ -> Program files -> mongodb -> server -> <version No.> -> bin
+-> Copy this path and add it to environment variables (So that we can use the CLI mongo and mongod from anywhere/any path)
+-> mongo and mongod are executable files or the CLI
+-> mongod is a demon process that runs in background
+-> to check if mongo-db is installed, use the command:
+@ mongo --version
+
+To start the mongo-db server:(Old versions Only)
+Download the msi file.
+Create folder named "data" in C drive and "db" as sub-folder
+Go to the progam files -> mongoDB -> In the address bar, type "cmd" and hit enter
+Now in the command prompt run the below command
+$ mongod --dbpath "C:/data"
+
+The above command runs the server. Keep the server running.
+From the mongoDB path, again open the command prompt.
+Run the command "mongo" to run the client
+$mongo
+We get the Prompt !!!
+-------------------------------------------------------------
+MongoDb TOC:
+Mongo Installation
+Create DB
+Drop DB
+Create Collection
+Drop Collection
+Data Types
+Insert Document to Collection
+Query Document
+Update Document
+Delete Document
+Indexing
+Aggregation
+Replication
+Sharding
+Deployment
+------------------------------------------------------------
+mongod and mongo are the 2 CLIs we get when we install MongoDB
+These 2 CLIs are found inside the mongoDB BIN folder.
+mongod is to start the server
+mongo is the client that connects to the server.
+
+Note: To use the mongod command, we must have a folder named db inside data inside c drive. This is the default folder for which the mongod looks for (C:\data\db)
+
+mongod --dbpath ~data\db
+The command runs the mongoDB server
+
+Now, we can use another window and run the mongo command and we should get the prompt.
+---------------------------------------------------------
+DIFFERENT WAYS TO CONNECT TO MongoDB:
+$ mongosh 
+#1. connects to mongodb://127.0.0.1:27017 by default
+
+mongosh --host <host> --port <port> --authenticationDatabase admin -u <user> -p <pwd> 
+#2. To connect as an admin with password authentication and Omit the password if you want a prompt
+
+mongosh "mongodb://<user>:<password>@192.168.1.1:27017"
+#3. To connect with Username and password
+
+mongosh "mongodb://192.168.1.1:27017"
+#4. To connect to a particular URL
 
