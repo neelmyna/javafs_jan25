@@ -1,0 +1,357 @@
+MONGO DB NOTES:
+https://www.mongodb.com/developer/products/mongodb/cheat-sheet/
+
+1. MongoDB is a Document based NOSQL (Not Only SQL). We can do RDBMS kind of DB creation and at the same time, Non-RDBMS DB can also be created.
+2. MongoDB uses JS syntax. This helps us in developing the End-to-End Full Stack App easily. Because, we may choose the Front-End and Back-End technologies which are also JS based.
+3. To work with MongoDB, we are given with a global object named "db" which we can call as mongoDB instance. Using this instance, we can call the library methods (built in functions).
+4. Since it is Djkn  ocument based, we can create the data in an Array, Multi Dimensional Array and also in Hierarchical DS (Tree).
+5. General purpose DB, Schema less model or flexible schema design, native aggregation, scalability and load balancing algorithms are inherent to mongo db, security features are available, mapReduce, Atlas.
+6. MongoDB is Document Based and Schema Free DB
+Other Examples for NoSQL DBs are:
+Graph based
+Document Based
+Key-Value Based
+Wide-Column Based
+
+SIMILARITY:
+RDBMS				MongoDB
+database			database
+Tables				collections
+row/tuple/object	document/record/object
+
+WORKING OF MONGO-DB
+-> It stores the data in J-son Format.
+-> The data is stored using Key-Value pairs
+-> In the back-end, the Json data is converted into Binary which we call as Bey-Son
+-> Data are stored as Documents. These Documents can be nested. And the documents are in turn are stored in collections.
+-> The documents thus are independent from documents in other collections.
+Since Mongo-DB is schema less, the data can be different and need not be similar.
+---------------------------------------------------------------
+INSTALLATION OF MongoDB ON WINDOWS:
+-> mongodb.com
+-> software -> community server -> download msi -> follow the steps and install
+-> install mongosh
+-> install mongodb compass
+
+* C:\ -> Program files -> mongodb -> server -> <version No.> -> bin
+-> Copy this path and add it to environment variables (So that we can use the CLI mongo and mongod from anywhere/any path)
+-> mongo and mongod are executable files or the CLI
+-> mongod is a demon process that runs in background
+-> to check if mongo-db is installed, use the command:
+@ mongo --version
+
+To start the mongo-db server:(Old versions Only)
+Download the msi file.
+Create folder named "data" in C drive and "db" as sub-folder
+Go to the progam files -> mongoDB -> In the address bar, type "cmd" and hit enter
+Now in the command prompt run the below command
+$ mongod --dbpath "C:/data"
+
+The above command runs the server. Keep the server running.
+From the mongoDB path, again open the command prompt.
+Run the command "mongo" to run the client
+$mongo
+We get the Prompt !!!
+-------------------------------------------------------------
+MongoDb TOC:
+Mongo Installation
+Create DB
+Drop DB
+Create Collection
+Drop Collection
+Data Types
+Insert Document to Collection
+Query Document
+Update Document
+Delete Document
+Indexing
+Aggregation
+Replication
+Sharding
+Deployment
+------------------------------------------------------------
+mongod and mongo are the 2 CLIs we get when we install MongoDB
+These 2 CLIs are found inside the mongoDB BIN folder.
+mongod is to start the server
+mongo is the client that connects to the server.
+
+Note: To use the mongod command, we must have a folder named db inside data inside c drive. This is the default folder for which the mongod looks for (C:\data\db)
+
+mongod --dbpath ~data\db
+The command runs the mongoDB server
+
+Now, we can use another window and run the mongo command and we should get the prompt.
+---------------------------------------------------------
+DIFFERENT WAYS TO CONNECT TO MongoDB:
+$ mongosh 
+#1. connects to mongodb://127.0.0.1:27017 by default
+
+mongosh --host <host> --port <port> --authenticationDatabase admin -u <user> -p <pwd> 
+#2. To connect as an admin with password authentication and Omit the password if you want a prompt
+
+mongosh "mongodb://<user>:<password>@192.168.1.1:27017"
+#3. To connect with Username and password
+
+mongosh "mongodb://192.168.1.1:27017"
+#4. To connect to a particular URL
+
+mongosh "mongodb+srv://cluster-name.abcde.mongodb.net/<dbname>" --apiVersion 1 --username <username>
+#5. To coonect to MongoDB Atlas
+---------------------------------------
+MongoDB COMMANDS:
+1. To connect to the DB:
+$ mongosh
+We get the prompt:
+test>
+
+2. This command lists all the databases
+test> show dbs;
+test> show databases;
+Note: admin, local and config are the default DBs
+
+3. This will connect to the specified DB if exists. Otherwise, it creates a new DB and connects to it.
+> use <db_name>;
+
+4. Connects to the DB nithin_db
+> use nithin_db;
+Note: The prompt changes
+
+5. Command that lists all the collections from the DB we are present in.
+> show collections;
+
+6. Command that lists all the documents present inside the collection employees (inside nithin_db DB)
+> db.employees.find();
+
+The 1st field which is "_id" is auto generated by mongoDB which is 24 Alphanumeric code and its data type is ObjectId
+
+7. Command to list the DB name we are currently present in
+> db;
+
+8. To exit the mongoDB Shell (Note: This will not stop the server)
+> exit;
+> quit;
+
+9. To clear the screen
+> cls;
+
+10. To create a new DB named nithin_db
+> create db nithin_db;
+
+Note: Until unless we have at least one collection or row/data in the database, the "show" command would not list the database name. However, the empty database will exist and we can switch to it by using the command "use"
+
+A Collection in MongoDB is Table in RDBMS
+A Document in MongoDB is a Row in RDBMS
+A DB in MongoDB is also called the same in RDBMS
+
+11. To create a Collection in a DB, we use the above command
+> db.createCollection('demo_collection')
+
+12. Alternate way to create a document in a collection
+> db.mtd_student.insert({id:101, name:'Nithin'})
+
+Here, mtd_student is the collection name and insert() method inserts a document (row) into the collection.
+Note: IF the collection doesn't exist, then a new collection is created by this command. Thus the above command creates, not just the document, but also the collection.
+
+13. Delete Database
+> db.dropDatabase('demo_db')
+
+14. Drop a collection named 'students'
+> db.students.drop()
+
+15. Show all Rows in a Collection 
+> db.students.find()
+
+16. Show all Rows in a Collection (Prettified)
+> db.students.find().pretty()
+
+17. Find the first row matching the object
+> db.students.findOne({name: 'nithin'})
+
+18. Insert One document into the collection named 'students'
+> db.students.insert({'name': 'reddy', 'lang': 'JavaScript', 'fee_paid': 5000})
+
+19. Insert many documents
+> db.comments.insertMany([
+	{
+		'name': 'Namratha',
+		'lang': 'JavaScript',
+		'fee_paid': 5000
+    }, 
+    {
+		'name': 'Nikhila',
+		'lang': 'Python',
+		'fee_paid': 3000
+    },
+    {
+		'name': 'Nishchitha',
+		'lang': 'Java',
+		'fee_paid': 4000
+	}
+])
+
+20. Search in a MongoDb Database
+> db.students.find({lang:'Python'})
+
+21. Limit the number of documents in the output:
+> db.students.find().limit(2)
+
+22. Count the number of documents in the output
+> db.students.find().count()
+> db.students.find().limit(3).count()
+
+23. update one document
+> db.students.updateOne({name:'nithin'},{$set{avg_score:69.5}}) #update nithin's avg_score to 69.5
+
+24. to delete one document
+> db.students.deleteOne({name:'nikhila'})
+
+25.
+> 
+
+students:
+	id 1001
+	name
+	avg_score
+	semester
+	branch
+	phone_num
+	
+Practical:
+1. Create 20 student documents
+> db.students.insert({'id': 1001, 'name': 'krishna', 'avg_score': 89.80, 'semester': 7, 'branch': 'computer_science', 'phone_num': 9900990099});
+
+2. update one student's avg_score 
+> db.students.updateOne({id:1002},{$set{avg_score:79.5}}) 
+
+3. update one student semester  
+> db.students.updateOne({id:1003},{$set{semester:5}}) 
+
+4. Delete one student
+> db.students.deleteOne({id:1003}) 
+
+5. Query the students based on branch 
+> db.students.find({branch:'aiml'}
+
+6. Query the students based on semester
+> db.students.find({semester:7}
+
+7. Query the students based on avg_score
+> db.students.find({"avg_score": {"$gt": 60}})
+
+8. Query the students based on phone_num
+> db.students.find({phone_num: 7788990011})
+
+9. update multiple students semester by quering semester only.
+> db.students.updateMany({semester: 6}, {$set:{semester: 7}})
+
+10. Print all the students who have failed the exam:
+> db.students.find({"avg_score": {"$lt": 50}})
+
+11. To print distinct branches
+> db.students.distinct("branch")
+
+12. To find using multiple conditions (implicit logical and)
+> db.students.find({name: "nishchitha", avg_score: 72})
+-----------------
+26. COMPARISON
+> db.students.find({"avg_score": {$gt: 50}})
+> db.students.find({"avg_score": {$gte: 70}})
+> db.students.find({"avg_score": {$lt: 75}})
+> db.students.find({"avg_score": {$lte: 80}})
+> db.students.find({"avg_score": {$ne: 50}})
+> db.students.find({"avg_score": {$in: [90, 99, 100]}})
+> db.students.find({"avg_score": {$nin: [99, 95]}})
+
+27. LOGICAL
+> db.students.find({name:{$not: {$eq: "nithin"}}})
+> db.students.find({$or: [{"semester" : 6}, {"branch" : "computer_science"}]})
+> db.students.find({$nor: [{avg_score: 70.0}, {semester: 5}]})
+> db.students.find({
+  $and: [
+    {$or: [{avg_score: {$lt :50}}, {avg_score:{$gt: 50}}]},
+    {$or: [{semester: 5}, {avg_score: {$lt: 50}}]}
+  ]
+})
+
+28. ELEMENT
+> db.students.find({name: {$exists: true}})
+> db.students.find({"semester": {$type: 2}})
+> db.students.find({"branch": {$type: "string"}})
+
+29. AGGREGATION PIPELINE
+> db.coll.aggregate([
+  {$match: {status: "A"}},
+  {$group: {_id: "$cust_id", total: {$sum: "$amount"}}},
+  {$sort: {total: -1}}
+])
+
+30. TEXT SEARCH WITH A "text" INDEX
+> db.coll.find({$text: {$search: "cake"}}, {score: {$meta: "textScore"}}).sort({score: {$meta: "textScore"}})
+
+31. REGEX
+> db.coll.find({name: /^Max/})   // regex: starts by letter "M"
+> db.coll.find({name: /^Max$/i}) // regex case insensitive
+
+32. ARRAY
+> db.coll.find({tags: {$all: ["Realm", "Charts"]}})
+> db.coll.find({field: {$size: 2}}) // impossible to index - prefer storing the size of the array & update it
+> db.coll.find({results: {$elemMatch: {product: "xyz", score: {$gte: 8}}}})
+
+33. PROJECTIONS
+db.coll.find({"x": 1}, {"actors": 1})               // actors + _id
+db.coll.find({"x": 1}, {"actors": 1, "_id": 0})     // actors
+db.coll.find({"x": 1}, {"actors": 0, "summary": 0}) // all but "actors" and "summary"
+
+34. SORT, SKIP, LIMIT
+> db.coll.find({}).sort({"year": 1, "rating": -1}).skip(10).limit(3)
+
+35. READ CONCERN
+> db.coll.find().readConcern("majority")
+
+36. MONGODB INCREMENT OPERATOR
+> db.students.update({name: 'keshava'},
+{$inc:{avg_score: 2 }})
+
+37. MONGODB RENAME OPERATOR
+> db.students.update({name: 'madhava'}, {$rename:{
+    avg_score: 'marks' }})
+
+38. DELETE ROW 
+> db.students.remove({name: 'nithin'})
+
+39. 
+> db.coll.stats()
+
+40.
+> db.coll.storageSize()
+
+41.
+> db.coll.totalIndexSize()
+
+42.
+> db.coll.totalSize()
+
+43.
+> db.coll.validate({full: true})
+
+44.
+> db.coll.renameCollection("new_coll", true) // 2nd parameter to drop the target collection if exists
+
+45.
+
+---------------------------------------------------------
+Vue JS:
+https://www.youtube.com/watch?v=5uX80VI0xLE&list=PLC3y8-rFHvwgeQIfSDtEGVvvSEPDkL_1f&index=2
+
+BootStrap 5:
+https://www.youtube.com/watch?v=O_9u1P5YjVc&list=PL4cUxeGkcC9joIM91nLzd_qaH_AimmdAR
+
+MongoDB Full Course:
+https://www.youtube.com/watch?v=8eJJe4Slnik&t=496s
+
+
+MEAN CRUD Project-1: (Angular-17)
+https://www.youtube.com/watch?v=Py3JqzIIVQU&list=PL0p3qZD8OGB9k5mdiw1Azf3Fz9JHF2WaQ&index=4
+
+MEAN CRUD Project-2: (Angular-17)
+https://www.youtube.com/watch?v=6J8gbru-kGs

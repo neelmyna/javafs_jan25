@@ -276,3 +276,23 @@ Note: IF the collection doesn't exist, then a new collection is created by this 
 
 14. Drop a collection named 'students'
 > db.students.drop()
+
+> db.departments.find({});
+
+> db.departments.insertOne({departmentId:106, departmentName:'FullStack'});
+
+> db.departments.deleteOne({departmentId:106});
+
+CRUD
+Create (insert) one document				post
+Read/Retrive/select/get one document		get
+update one document							put
+delete one document							delete
+read with id								get
+
+CRUD OPERATION		RESTFUL API		HOW TO USE
+insert one row		post			the object/data is 									given as body
+list all rows		get				get
+update one row		put				put/:id
+delete one row		delete			delete/:id
+search one row		get				get/:id
