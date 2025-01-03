@@ -353,3 +353,39 @@ db.persons.find().limit(3);
 
 // List only last 3 documents
 db.persons.find().sort({_id: -1 }).limit(3);
+---------------------------------------------
+New Entity: Employee
+	name
+	code
+	designation
+	location
+	technology
+	salary
+	commission
+	phone_num
+	years_of_exp
+	
+db.createCollection('employees');
+
+db.employees.insertOne({name:'nithin', code:'tr01', designation:'trainer', location:'mysuru', technology:'c++', salary:125000, commission:45000, phone_num: 9480273090, years_of_exp: 12})
+
+db.employees.insertMany([
+{name:'rajkumar', code:'tr03', designation:'trainer', location:'tiruchirapalli', technology:'python', salary:135000, phone_num: 8899889977}, 
+
+{name:'rakesh', code:'tr04', designation:'trainer', salary:125000, commission:5000, phone_num: 7779998880, years_of_exp: 2},
+ 
+{name:'navya', code:'ts06', designation:'tester', location:'anantapur', salary:195000, phone_num: 7019595085, years_of_exp: 1}
+]);
+
+1. Find the employee with max salary (print all details)
+2. Find the employee with with minimum salary (print only name, designation and location)
+3. Print the average salary of the employees who are working as testers
+4. Count the number of employees who are wrking as trainers.
+5. Count the number of developers
+6. Count the number of employees whose commission data is not available.
+7. Find average of all the employees.
+8. Print all details of the employees whose phone number is not available.
+9. Find total salary of all employees
+10. Find total salary of all testers.
+11. Find total salary of trainers, developers and testers.
+12. Find max salary of each of the designation.
