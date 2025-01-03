@@ -296,3 +296,60 @@ list all rows		get				get
 update one row		put				put/:id
 delete one row		delete			delete/:id
 search one row		get				get/:id
+
+
+persons
+	_id
+	name
+	gender
+	
+db.persons.insertOne({name:'namita', gender:'f'});
+db.persons.find();
+db.persons.findOne({name:''nithin'});
+
+db.persons.findOne({name:'nithin'});
+null 
+The document with name 'nithin' was not found
+
+db.persons.findOne({name:'nithin'});
+This returns always either 0 or object/document
+
+git config --global user.name "neelmyna"
+
+git config --global user.email "nitinmyna@gmail.com"
+----------------------------------
+If further error exists, then try this:
+
+git remote set-url origin https://{new url with username replaced}
+
+Go to Windows Search and type:
+	credential Manager
+	Very the git username
+---------------------------------------------------
+CRUD Operations on persons:
+
+Insert One document:
+db.persons.insertOne({name:'namita', gender:'f'});
+
+Search One Record:
+db.persons.find({name:'Nithin'})
+db.persons.find({_id:6777623c310a1f7e89e540d1})
+
+Delete One Record:
+db.persons.deleteOne({name:'Nithin'})
+
+Update One Record:
+db.persons.updateOne({name:'niharika'},{$set:{gender:'f'}});:'f'});
+db.persons.updateOne({name:'namita'},{$set:{name:'namitha'}});
+
+List All:
+db.persons.find();
+
+// Print pretty view
+db.persons.find().pretty();
+
+// List only 1st 3 documents
+db.persons.find().limit(3);
+
+// List only last 3 documents
+db.persons.find().sort({_id: -1 }).limit(3);
