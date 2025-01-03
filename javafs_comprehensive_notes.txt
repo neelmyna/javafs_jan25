@@ -378,7 +378,43 @@ db.employees.insertMany([
 ]);
 
 1. Find the employee with max salary (print all details)
-2. Find the employee with with minimum salary (print only name, designation and location)
+
+db.employees.aggregate([
+	{$sort: {salary: -1}},
+	{$limit:1}
+]);
+
+
+2a. Print only the name, designation and location of the employees.
+
+db.employees.({}, {name: 1, designation: 1, location: 1});
+// The above query/command prints the _id also
+
+db.employees.find({}, {name: 1, designation: 1, location: 1, _id:0});
+// The above query/command doesn't prints the _id
+
+2b. Find the employee with with minimum salary (print all details)
+
+db.employees.aggregate([
+	{$sort: {salary: 1}},
+	{$limit:1}
+]);
+
+2c. Find the employee with with maximum salary (print only name, designation and location)
+
+db.employees.aggregate([
+	{$sort: {salary: -1}},
+	{$limit:1},
+	{
+		$project:{
+			name:1,
+			designation:1,
+			location:1,
+			_id:0
+		}
+	}
+]);
+
 3. Print the average salary of the employees who are working as testers
 4. Count the number of employees who are wrking as trainers.
 5. Count the number of developers
@@ -389,3 +425,21 @@ db.employees.insertMany([
 10. Find total salary of all testers.
 11. Find total salary of trainers, developers and testers.
 12. Find max salary of each of the designation.
+---------------------------------------------------
+1	github and mongodb
+2	mongodb
+3	java
+4	java
+5	java to mongoDb CRUD operation
+6	JS
+7	Advanced JS
+8	HTML CSS JS
+9	Bootstrap
+10	Bootstrap
+11	JSP-Servlets
+12	JSP-Servlets
+13	FE (html-css-js-bootstrap) BE (Servlets) DB (Mongo)
+14	FE (html-css-js-bootstrap) BE (Servlets) DB (Mongo)
+15	FE (html-css-js-bootstrap) SpringBoot MongoDb
+
+
