@@ -1,9 +1,11 @@
+STEPS TO CREATE A NEW REPO:
+
 On top of the window (slightly on right), you can see a + button
 Click the new repo button (plus button) -> New Repository
 
 In the new window, give the Repo name: javafs_jan25
 
-Description: This repo was created for the Java full stack learning using html-css-js as the FE, SpringBoot as BE and MongoDb as the Data Source.
+DESCRIPTION: This repo is created for the Java full stack learning using html-css-js as the FE, SpringBoot as BE and MongoDb as the Data Source.
 
 Keep the Repo Public
 
@@ -11,16 +13,14 @@ Select the Checkbox "Add readme File"
 
 Click the green button "create repo"
 
-
+TECHNOLOGIES WE ARE GOING TO LEARN:
 Use of Github
-HTML
-CSS
-JS
 MongoDb
-Bootstrap
 Java (important concepts of OOP, Exception handling and Collections) and problem solving
 JSP-Servlets
 SpringBoot
+JS and ES6
+HTML - CSS - Bootstrap
 Project Building (CRUD Operations)
 	Java-MongoDb driver-MongoDb (BE-DB)
 	SpringBoot-MongoDb			(BE-DB)
@@ -44,21 +44,20 @@ Angular - Node-Express - MySql
 
 https://github.com/neelmyna/javafs_jan25
 
-
 Steps to create Personal Access Token (PAT):
 1. Click on your profile picture (Top right corner)
 2. Scroll down and Click Settings
 3. In the new window, scroll down and click developer settings (left bottom corner)
-4. Now, in the new window on top right, click -> Personal access tokens -> select Classic
+4. Now, in the new window on top left, click -> Personal access tokens -> select Classic
 5. In the new window, Click Generate New Token -> select Tokens Classic
 6. In the new window, give:
 	Description: "This PAT was created for my learning full stack development technologies"
-	Expiration: Select No Expiry
+	EXPIRATION: Select No Expiry
 	Later fully scroll down (do not select any check boxes) and click the button "create PAT"
 	
 NOTE: Copy the PAT that is created and mail it to yourself (Keep it confidential) and see that it is always with you (do not lose the PAT)
 
-Arrangement and Organising Software in our Computer:
+ARRANGEMENT AND ORGANISING SOFTWARE IN OUR COMPUTER:
 We must neatly aarange the files, software and Apps in our laptops.
 Use C drive only to store the OS and the software
 Use D drive only for your learning (projects and programs and material)
@@ -74,7 +73,7 @@ Google: Download git
 Use the link: https://git-scm.com/downloads
 Select the OS and download the installer file
 Cut the installer file from the "downloads" folder and paste it inside C:/software/git folder
-Now dowuble click and install it
+Now double click and install it.
 Note that you must get the CLI/Command/App "git"
 $ git --version (This is to check the version number of the CLI and also to check if the App is available)
 
@@ -85,9 +84,12 @@ Inside learning, create the folders for all the technologies that you are learni
 	java
 	javafs
 	mongodb
-D:/learning/javafs
+D:/learning/
 
 GIT COMMANDS:
+
+$ git config --global user.name "neelmyna"
+$ git config --global user.email  "nitinmyna@gmail.com"
 
 $ git status
 To check the status of my repo (local repo)
@@ -100,12 +102,9 @@ This command will mark all the files from the current folder/path/directory that
 
 $ git commit -m "p4 and p5 programs are added"
 
-
 $ git push origin main
 
-
 $ git clone https://github.com/neelmyna/javafs_jan25
-
 
 $ git clone https://PAT@github.com/neelmyna/javafs_jan25
 
@@ -313,10 +312,6 @@ The document with name 'nithin' was not found
 
 db.persons.findOne({name:'nithin'});
 This returns always either 0 or object/document
-
-git config --global user.name "neelmyna"
-
-git config --global user.email "nitinmyna@gmail.com"
 ----------------------------------
 If further error exists, then try this:
 
@@ -425,7 +420,7 @@ db.employees.aggregate([
 10. Find total salary of all testers.
 11. Find total salary of trainers, developers and testers.
 12. Find max salary of each of the designation.
----------------------------------------------------
+-------------------------------------------------
 1	github and mongodb
 2	mongodb
 3	java
@@ -441,5 +436,90 @@ db.employees.aggregate([
 13	FE (html-css-js-bootstrap) BE (Servlets) DB (Mongo)
 14	FE (html-css-js-bootstrap) BE (Servlets) DB (Mongo)
 15	FE (html-css-js-bootstrap) SpringBoot MongoDb
+--------------------------------------------
+javac -d out src/com/example/Main.java
+Run the program using java com.example.Main
+---------------------------------------------
+Why main() in java is public static void
 
+why constructors cannot be static final abstract
 
+Student student = new Student();
+------------------------------------
+class A1 {
+   A1(){ System.out.println("A1's no arg constructor"); }
+   A1(int a){ System.out.println(“A1's constructor "+ a); }
+}
+class B1 extends A1{
+   B1(){  System.out.println("B1's no arg constructor"); }
+   B1(int b){  super(1000);
+	      System.out.println(“B1's constructor "+ b); } 
+}
+class C1 extends B1{
+   C1() {System.out.println(“C1's no arg constructor"); }
+   C1(int c){ super(100);
+   		System.out.println(“C1's constructor "+ c); }
+}
+public class TestingInheritance{
+   public static void main(String args[]){
+   	C1 ca = new C1();	
+   }
+}
+-----------------------------------------------
+class A1 {
+   A1(){ System.out.println("A1's no arg constructor"); }
+   A1(int a){ System.out.println(“A1's constructor "+ a); }
+}
+class B1 extends A1{
+   B1(){  System.out.println("B1's no arg constructor"); }
+   B1(int b){  super(1000);
+	      System.out.println(“B1's constructor "+ b); } 
+}
+class C1 extends B1{
+   C1() {System.out.println(“C1's no arg constructor"); }
+   C1(int c){ super(100);
+   		System.out.println(“C1's constructor "+ c); }
+}
+class TestingInheritance1{
+   public static void main(String args[]){
+   	C1 ca = new C1(10);	
+   }
+}
+--------------------------------------------
+class A1 {
+   A1(){ System.out.println("A1's no arg constructor"); }
+   A1(int a){ System.out.println(“A1's constructor "+ a); }
+}
+class B1 extends A1{
+   B1(){  System.out.println("B1's no arg constructor"); }
+   B1(int b){  super(1000);
+	      System.out.println(“B1‘s constructor "+ b); } 
+}
+class C1 extends B1{
+   C1() {System.out.println(“C1's no arg constructor"); }
+   C1(int c){ System.out.println(“C1's constructor "+ c); }
+}
+class TestingInheritance2{
+   public static void main(String args[]){
+   	C1 ca = new C1(10);	
+   }
+}
+------------------------------------------
+class A1 {
+   A1(){ System.out.println("A1's no arg constructor"); }
+   A1(int a){ System.out.println(“A1's constructor "+ a); }
+}
+class B1 extends A1{
+   B1(){  System.out.println("B1's no arg constructor"); }
+   B1(int b){ System.out.println(“B1‘s constructor "+ b); } 
+}
+class C1 extends B1{
+   C1() { super(100);
+	System.out.println(“C1's no arg constructor"); }
+   C1(int c){ System.out.println(“C1's constructor "+ c); }
+}
+class TestingInheritance3{
+   public static void main(String args[]){
+   	C1 ca = new C1(10);	
+   }
+}
