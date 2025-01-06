@@ -329,16 +329,41 @@ CRUD Operations on persons:
 Insert One document:
 db.persons.insertOne({name:'namita', gender:'f'});
 
+db.createCollection('persons');
+
+db.persons.insertOne({name: 'nithin', gender: 'm'});
+
+db.persons.insertMany([
+	{name: 'nithin', gender: 'm'}, 
+	{name: 'shweta', gender: 'f'}, 
+	{name: 'nikhil', gender: 'f'},
+	{name: 'namita', gender: 'f'}, 
+	{name: 'nithin', gender: 'm'}, 
+	{name: 'nishanth'},
+	{name: 'namita', gender: 'f'}, 
+	{name: 'nithin', gender: 'm'}, 
+	{name: 'nishanth'},
+]);
+
 Search One Record:
 db.persons.find({name:'Nithin'})
 db.persons.find({_id:6777623c310a1f7e89e540d1})
 
 Delete One Record:
 db.persons.deleteOne({name:'Nithin'})
+db.persons.deleteOne({_id:6777623c310a1f7e89e540d1})
 
 Update One Record:
 db.persons.updateOne({name:'niharika'},{$set:{gender:'f'}});:'f'});
+
 db.persons.updateOne({name:'namita'},{$set:{name:'namitha'}});
+db.persons.updateOne({_id:6777623c310a1f7e89e540d1},{$set:{name:'namitha'}});
+
+db.persons.replaceOne({name:'nishanth'}, {gender:'m'});
+//Replaces only the given attribute and all other attributes will be set to null.
+
+db.persons.updateMany({name:'nishanth'}, {$set:{gender:'m'}});
+// update the gender of all rows ehere name is 'nishanth' to 'm'
 
 List All:
 db.persons.find();
@@ -414,47 +439,65 @@ db.employees.aggregate([
 ]);
 
 3. Print the average salary of the employees who are working as testers.
-db.employees.aggregate([
-  {
+db.employees.aggregate([ {
     $match: {
       designation: "tester"  // Assuming the job title is stored as 'designation' in the collection
     }
-  },
-  {
+  }, {
     $group: {
       _id: null,  // Grouping all matching employees together
       averageSalary: { $avg: "$salary" }  // Calculating the average salary
-    }
-  }
+  } }
 ])
 
-4. Count the number of employees who are wrking as trainers.
-
-db.employees.aggregate([
-  {
+4. Count the number of employees who are working as trainers.
+db.employees.aggregate([{
     $match: {
-      designation: "trainer"  // Assuming the job title is stored as 'designation' in the collection
+      designation: "trainer"
     }
-  },
-  {
-    $count: "trainerCount"  // Counts the number of employees who are trainers
+  }, {
+    $count: "trainerCount"
   }
 ])
 
 5. Count the number of developers
-
+db.employees.aggregate([{
+    $match: {
+      designation: "developer"
+    }
+  }, {
+    $count: "developerCount"
+  }
+])
 
 6. Count the number of employees whose commission data is not available.
+db.employees.aggregate([{
+    $match: {
+      commission: null
+    }
+  }, {
+    $count: "zeroCommissionCount"
+  }
+])
+
+6b. Print all the documents where commission is null.
+db.employees.find({commission:null});
+
+7. Find average commission of all the employees.
 
 
-
-7. Find average of all the employees.
 8. Print all details of the employees whose phone number is not available.
+
+
 9. Find total salary of all employees
 10. Find total salary of all testers.
 11. Find total salary of trainers, developers and testers.
 12. Find max salary of each of the designation.
--------------------------------------------------
+13. Print all the capitalized employee names.
+14. Print all the employee names in upper case.
+15. Print all the employee details whose name starts from 's'
+16. Print all the employee details whose name starts from 's' or 'a'.
+-----------------------------------------------
 1	github and mongodb
 2	mongodb
 3	java
@@ -559,6 +602,8 @@ public class TestingInheritance3{
 }
 ----------------------------------------------
 Eclipse IDE for Enterprise Java and Web Developers (windows x86_64)
+
+
 
 
 
