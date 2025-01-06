@@ -108,6 +108,14 @@ $ git clone https://github.com/neelmyna/javafs_jan25
 
 $ git clone https://PAT@github.com/neelmyna/javafs_jan25
 
+If further error exists, then try this:
+
+git remote set-url origin https://{new url with username replaced}
+
+Go to Windows Search and type:
+	credential Manager
+	Very the git username
+--------------------------------------------
 MongoDB database Notes:
 
 MONGO DB NOTES:
@@ -139,8 +147,12 @@ WORKING OF MONGO-DB
 -> The documents thus are independent from documents in other collections.
 Since Mongo-DB is schema less, the data can be different and need not be similar.
 ---------------------------------------------------------------
-INSTALLATION OF MongoDB ON WINDOWS:
--> mongodb.com
+DOWNLOAD AND INSTALL OF MongoDB ON WINDOWS:
+mongodb server (software)
+mongodb shell (mongosh)
+mongodb compass (GUI)
+
+-> mongodb.com/downloads
 -> software -> community server -> download msi -> follow the steps and install
 -> install mongosh
 -> install mongodb compass
@@ -274,7 +286,7 @@ Note: IF the collection doesn't exist, then a new collection is created by this 
 > db.dropDatabase('demo_db')
 
 14. Drop a collection named 'students'
-> db.students.drop()
+> db.students.drop();
 
 > db.departments.find({});
 
@@ -290,12 +302,11 @@ delete one document							delete
 read with id								get
 
 CRUD OPERATION		RESTFUL API		HOW TO USE
-insert one row		post			the object/data is 									given as body
+insert one row		post			the object/data is given as body
 list all rows		get				get
 update one row		put				put/:id
 delete one row		delete			delete/:id
 search one row		get				get/:id
-
 
 persons
 	_id
@@ -312,15 +323,7 @@ The document with name 'nithin' was not found
 
 db.persons.findOne({name:'nithin'});
 This returns always either 0 or object/document
-----------------------------------
-If further error exists, then try this:
-
-git remote set-url origin https://{new url with username replaced}
-
-Go to Windows Search and type:
-	credential Manager
-	Very the git username
----------------------------------------------------
+------------------------------------------------
 CRUD Operations on persons:
 
 Insert One document:
@@ -410,10 +413,41 @@ db.employees.aggregate([
 	}
 ]);
 
-3. Print the average salary of the employees who are working as testers
+3. Print the average salary of the employees who are working as testers.
+db.employees.aggregate([
+  {
+    $match: {
+      designation: "tester"  // Assuming the job title is stored as 'designation' in the collection
+    }
+  },
+  {
+    $group: {
+      _id: null,  // Grouping all matching employees together
+      averageSalary: { $avg: "$salary" }  // Calculating the average salary
+    }
+  }
+])
+
 4. Count the number of employees who are wrking as trainers.
+
+db.employees.aggregate([
+  {
+    $match: {
+      designation: "trainer"  // Assuming the job title is stored as 'designation' in the collection
+    }
+  },
+  {
+    $count: "trainerCount"  // Counts the number of employees who are trainers
+  }
+])
+
 5. Count the number of developers
+
+
 6. Count the number of employees whose commission data is not available.
+
+
+
 7. Find average of all the employees.
 8. Print all details of the employees whose phone number is not available.
 9. Find total salary of all employees
@@ -480,7 +514,7 @@ class C1 extends B1{
    C1(int c){ super(100);
    		System.out.println(“C1's constructor "+ c); }
 }
-class TestingInheritance1{
+public class TestingInheritance1{
    public static void main(String args[]){
    	C1 ca = new C1(10);	
    }
@@ -499,7 +533,7 @@ class C1 extends B1{
    C1() {System.out.println(“C1's no arg constructor"); }
    C1(int c){ System.out.println(“C1's constructor "+ c); }
 }
-class TestingInheritance2{
+public class TestingInheritance2{
    public static void main(String args[]){
    	C1 ca = new C1(10);	
    }
@@ -518,8 +552,13 @@ class C1 extends B1{
 	System.out.println(“C1's no arg constructor"); }
    C1(int c){ System.out.println(“C1's constructor "+ c); }
 }
-class TestingInheritance3{
+public class TestingInheritance3{
    public static void main(String args[]){
    	C1 ca = new C1(10);	
    }
 }
+----------------------------------------------
+Eclipse IDE for Enterprise Java and Web Developers (windows x86_64)
+
+
+
