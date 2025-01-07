@@ -484,12 +484,21 @@ db.employees.aggregate([{
 db.employees.find({commission:null});
 
 7. Find average commission of all the employees.
-
+db.employees.aggregate([ {
+    $group: {
+      averageCommission: { $avg: "$commission" }
+  } }
+])
 
 8. Print all details of the employees whose phone number is not available.
+db.employees.aggregate([{
+    $match: {
+      phone_num: null
+    }
+  }
+])
 
-
-9. Find total salary of all employees
+9. Find total salary of all employees.
 10. Find total salary of all testers.
 11. Find total salary of trainers, developers and testers.
 12. Find max salary of each of the designation.
@@ -605,5 +614,7 @@ Eclipse IDE for Enterprise Java and Web Developers (windows x86_64)
 
 
 
-
-
+static {
+        scanner = new Scanner(System.in);
+		persons = new ArrayList<>();
+    }
