@@ -739,24 +739,43 @@ public class Menu {
 	}// end of main
 }
 ------------------------------
-static {
-	id = 1;
-}
-
-public Person(String name, char gender) {
-	super();
-	this.name = name;
-	this.gender = gender;
-	this.id = Person.id;
-	Person.id++;
-}
-
-
 private void insertPerson() {
 	System.out.print("Enter name of the person: ");
 	String name = scanner.next();
 	System.out.print("Enter gender of the person: ");
 	char gender = scanner.next().charAt(0);
 	Person person = new Person(name, gender);
-	
+	persons.add(person);
+}
+
+private void insertPerson() {
+Person person = new Person();
+	System.out.print("Enter name of the person: ");
+	String name = scanner.next();
+	System.out.print("Enter gender of the person: ");
+	char gender = scanner.next().charAt(0);
+	person.setName(name);
+	person.setGender(gender);
+	persons.add(person);
+}
+
+private void listAllPersons() {
+	if(persons.isEmpty()) {
+		System.out.println("No persons to list");
+		return;
+	}
+	System.out.println("Persons list is");
+	for(Person person in persons)
+		System.out.println(person);
+}
+
+private void listAllPersons() {
+	if(persons.isEmpty()) {
+		System.out.println("No persons to list");
+		return;
+	}
+	System.out.printf("%-3s %-15s %s\n", "ID", "NAME", "GENDER");	System.out.printf("------------------------------\n");
+	for(Person person in persons)
+		System.out.printf("%-3s %-15s %s \n", person.getId(), person.getName(), person.getGender());
+		System.out.println(person);
 }

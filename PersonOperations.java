@@ -4,16 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonOperations {
-    
     private List <Person> persons;
     private Scanner scanner;
     
     {
         scanner = new Scanner(System.in);
+        persons = new ArrayList<>();
     }
 
     private void insertPerson() {
-
+        System.out.print("Enter name of the person: ");
+	    String name = scanner.next();
+	    System.out.print("Enter gender of the person: ");
+	    char gender = scanner.next().charAt(0);
+	    Person person = new Person(name, gender);
+	    persons.add(person);
     }
 
     private void deletePerson() {
@@ -29,7 +34,15 @@ public class PersonOperations {
     }
 
     private void listAllPersons() {
-
+        if(persons.isEmpty()) {
+            System.out.println("No persons to list");
+            return;
+        }
+        System.out.printf("%-3s %-15s %s\n", "ID", "NAME", "GENDER");	System.out.printf("------------------------------\n");
+        for(Person person : persons) {
+            System.out.printf("%-3s %-15s %s \n", person.getId(), person.getName(), person.getGender());
+            //System.out.println(person);
+        }
     }
 
     private int printMenu() {
