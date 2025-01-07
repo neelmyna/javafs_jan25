@@ -499,29 +499,89 @@ db.employees.aggregate([{
 ])
 
 9. Find total salary of all employees.
+
+db.employees.aggregate([
+  {
+    $group: {
+      _id: null, 
+      totalSalary: { $sum: "$salary" }
+    }
+  }
+])
+
 10. Find total salary of all testers.
+db.employees.aggregate([
+  {
+    $match: { designation: "tester" } 
+  },
+  {
+    $group: {
+      _id: null, 
+      totalSalary: { $sum: "$salary" }
+    }
+  }
+])
+
 11. Find total salary of trainers, developers and testers.
+db.employees.aggregate([
+  {
+    $match: { designation: { $in: ["tester", "developer", "trainer"] } }
+  },
+  {
+    $group: {
+      _id: null, 
+      totalSalary: { $sum: "$salary" }
+    }
+  }
+])
+
 12. Find max salary of each of the designation.
+db.employees.aggregate([
+  {
+    $group: {
+      _id: "$designation",
+      maxSalary: { $max: "$salary" } 
+    }
+  }
+])
 13. Print all the capitalized employee names.
 14. Print all the employee names in upper case.
 15. Print all the employee details whose name starts from 's'
 16. Print all the employee details whose name starts from 's' or 'a'.
 -----------------------------------------------
+Session# TOPIC_NAME
 1	github and mongodb
 2	mongodb
-3	java
-4	java
-5	java to mongoDb CRUD operation
-6	JS
-7	Advanced JS
-8	HTML CSS JS
-9	Bootstrap
-10	Bootstrap
-11	JSP-Servlets
-12	JSP-Servlets
-13	FE (html-css-js-bootstrap) BE (Servlets) DB (Mongo)
-14	FE (html-css-js-bootstrap) BE (Servlets) DB (Mongo)
-15	FE (html-css-js-bootstrap) SpringBoot MongoDb
+3	mongodb
+4	java OOP
+5	java program on Student/employee entity
+6	java to mongoDb CRUD operation using mongo cleint
+7	java-mongoDb program
+8	JS
+9	JS (map, filter, reduce)
+10	Advanced JS, ES6 (promise, async-await, try-catch)
+11	HTML CSS
+12	Calculator problem
+13	Bootstrap
+14	Bootstrap
+15	JSP-Servlets
+16	JSP-Servlets
+17	JSP-Servlets
+18	FE (html-css-js-bootstrap) BE (Servlets) DB (Mongo)
+19	FE (html-css-js-bootstrap) BE (Servlets) DB (Mongo)
+20	FE (html-css-js-bootstrap) BE (Servlets) DB (Mongo)
+21	SpringBoot MongoDb
+22	SpringBoot MongoDb (postman)
+23	SpringBoot MongoDb (postman)
+24	FE (html-css-js-bootstrap) SpringBoot MongoDb21	FE (html-css-js-bootstrap) SpringBoot MongoDb
+25	FE (html-css-js-bootstrap) SpringBoot MongoDb
+26	FE (html-css-js-bootstrap) SpringBoot MongoDb
+27	FE (html-css-js-bootstrap) SpringBoot MongoDb
+28	FE (html-css-js-bootstrap) SpringBoot MongoDb
+29	FE (html-css-js-bootstrap) SpringBoot MongoDb
+30	FE (html-css-js-bootstrap) SpringBoot MongoDb
+31	FE (html-css-js-bootstrap) SpringBoot MongoDb
+32	FE (html-css-js-bootstrap) SpringBoot MongoDb
 --------------------------------------------
 javac -d out src/com/example/Main.java
 Run the program using java com.example.Main
@@ -618,3 +678,5 @@ static {
         scanner = new Scanner(System.in);
 		persons = new ArrayList<>();
     }
+-------------------------------------
+https://forms.gle/EqELbpL9sZsmTa1Y8
