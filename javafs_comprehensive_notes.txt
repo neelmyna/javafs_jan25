@@ -738,3 +738,25 @@ public class Menu {
         scanner.close();
 	}// end of main
 }
+------------------------------
+static {
+	id = 1;
+}
+
+public Person(String name, char gender) {
+	super();
+	this.name = name;
+	this.gender = gender;
+	this.id = Person.id;
+	Person.id++;
+}
+
+
+private void insertPerson() {
+	System.out.print("Enter name of the person: ");
+	String name = scanner.next();
+	System.out.print("Enter gender of the person: ");
+	char gender = scanner.next().charAt(0);
+	Person person = new Person(name, gender);
+	
+}

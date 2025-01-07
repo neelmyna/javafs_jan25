@@ -1,11 +1,14 @@
 package person;
 
-import java.util.Objects;
-
 public class Person {
-	private static int id;
+	private static int generateId;
+	private int id;
 	private String name;
 	private char gender;
+
+	static {
+		generateId = 1;
+	}
 
 	public Person() {
 		super();
@@ -15,14 +18,20 @@ public class Person {
 		super();
 		this.name = name;
 		this.gender = gender;
+		id = generateId;
+		generateId++;
 	}
 
-	public static int getId() {
+	public static int getGenerateId() {
+		return generateId;
+	}
+
+	public int getId() {
 		return id;
 	}
 
-	public static void setId(int id) {
-		Person.id = id;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -43,18 +52,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", gender=" + gender + "]";
+		return "Person [id=" + id + ", name=" + name + ", gender=" + gender + "]";
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Person other = (Person) obj;
-		return gender == other.gender && Objects.equals(name, other.name);
-	}
 }
