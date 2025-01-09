@@ -1,9 +1,15 @@
-package person;
+
 import java.util.Scanner;
 
 public class Menu {
 	
-	puclic static int printMenu() {
+	private static Scanner scanner;
+	
+	static {
+		scanner = new Scanner(System.in);
+	}
+
+	public static int printMenu() {
 		int choice = 0;
 		System.out.println("1:Insert 2:Delete 3:Update 4:Search 5:List 6:Exit \n Your choice: ");
 			choice = scanner.nextInt();
