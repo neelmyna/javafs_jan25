@@ -779,3 +779,20 @@ private void listAllPersons() {
 		System.out.printf("%-3s %-15s %s \n", person.getId(), person.getName(), person.getGender());
 		System.out.println(person);
 }
+---------------------------------------------
+private void searchPerson() {
+	if(persons.isEmpty()) {
+		System.out.println("There are no persons to seacrh");
+		return;
+	}
+	System.out.print("Enter Id of the person to be search: ");
+	int id = scanner.nextInt();
+	for(Person person : persons) {
+		if(person.getId() == id) {
+			System.out.println("Name of the person is " + person.getName());
+			System.out.println("Gender is " + person.getGender());
+			return;
+		}
+	}
+	System.out.print("Person with id " + id + " not found");
+}

@@ -22,15 +22,56 @@ public class PersonOperations {
     }
 
     private void deletePerson() {
-
+        if(persons.isEmpty()) {
+            System.out.println("There are no persons to delete");
+            return;
+        }
+        System.out.print("Enter Id of the person to delete: ");
+        int id = scanner.nextInt();
+        for(Person person : persons) {
+            if(person.getId() == id) {
+                System.out.println("Deleted person is " + person);
+                persons.remove(person);
+                return;
+            }
+        }
+        System.out.println("Person with id " + id + " not found");
     }
 
     private void updatePerson() {
-
+        if(persons.isEmpty()) {
+            System.out.println("There are no persons to update");
+            return;
+        }
+        System.out.print("Enter Id of the person to update: ");
+        int id = scanner.nextInt();
+        for(Person person : persons) {
+            if(person.getId() == id) {
+                System.out.print("Enter new name to be updated: ");
+                String name = scanner.next();
+                person.setName(name);
+                System.out.println("Updated person is " + person);
+                return;
+            }
+        }
+        System.out.println("Person with id " + id + " not found");
     }
 
     private void searchPerson() {
-
+        if(persons.isEmpty()) {
+            System.out.println("There are no persons to seacrh");
+            return;
+        }
+        System.out.print("Enter Id of the person to be search: ");
+        int id = scanner.nextInt();
+        for(Person person : persons) {
+            if(person.getId() == id) {
+                System.out.println("Name of the person is " + person.getName());
+                System.out.println("Gender is " + person.getGender());
+                return;
+            }
+        }
+        System.out.println("Person with id " + id + " not found");
     }
 
     private void listAllPersons() {
