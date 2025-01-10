@@ -715,3 +715,102 @@ git status
 
 git pull origin main
 ---------------------------------------------
+POJO class:
+Person.java
+
+package person;
+
+import java.util.Objects;
+
+public class Person {
+	private static int idSource;
+	private int id = 5;
+	private String name;
+	private char gender;
+
+	static {
+		idSource = 1;
+		System.out.println("From the static initiazer block");
+	}
+	
+	{
+		System.out.println("From the instance initiazer block");
+		System.out.println("Id = " + id);
+		id = 2;
+		System.out.println("Id = " + id);
+	}
+
+	public Person() {
+		super();
+		this.id = idSource;
+		idSource++;
+		System.out.println("From the Zero Arg Cons");
+		System.out.println("Id = " + id);
+	}
+
+	public Person(String name, char gender) {
+		super();
+		this.name = name;
+		this.gender = gender;
+        System.out.println("Id = " + id);
+		System.out.println("Before assignment idSource = " + idSource);
+        this.id = idSource;
+		idSource++;
+        System.out.println("Id = " + id);
+        System.out.println("After assignment idSource = " + idSource);
+        System.out.println("From the Params Cons");
+	}
+
+	public static int getIdSource() {
+		return idSource;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public char getGender() {
+		return gender;
+	}
+
+	public void setGender(char gender) {
+		this.gender = gender;
+	}
+
+	@Override
+	public String toString() {
+		return "Person details are:  Id=" + id + ", Name=" + name + ", Gender=" + gender;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return gender == other.gender && Objects.equals(name, other.name);
+	}
+}
+------------------------
+PersonOperations.java
+
+package person;
+
+public class PersonOperations {
+
+    public static void main(String[] args) {
+        Person person = new Person("Nithin", 'M');
+    }
+    
+}
