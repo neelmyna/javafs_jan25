@@ -1,0 +1,54 @@
+Pizza Maven App (Java-mongoClient-MongoDB)
+
+File -> new -> maven project
+select simple project
+groupid
+artifactid
+name
+description
+	"pizza"
+Click -> Finish
+
+Right Click src/main/java -> create new package "pizza"
+
+Right Click package "pizza" -> create new class "Pizza"  (POJO class)
+
+Right Click package "pizza" -> create new class "PizzaDao"  (CRUD implementations)
+
+Right Click package "pizza" -> create new class "PizzaService"  (Menu to run the App)
+
+Open pom.xml
+After description tag, introduce new tag:
+<dependencies>
+</dependencies>
+
+Now google search for "java mongoclient maven dependency"
+
+Copy the dependency tag from mvnrepository and paste it inside <dependencies> tag in pom.xml
+
+Now, we observe that maven dependencies folder appears in project explorer
+
+We define 3 methods in PizzaService
+	main()
+	startApp()
+	printMenu()
+
+We define 8 methods in pizzaDao
+	insertPizza()
+	deletePizza()
+	updatePizza()
+	searchPizza()
+	listAllPizzas()
+	connectDb()
+	disConnectDb()
+	readPizzaDetails()
+
+Now, implement all the CRUD operations
+
+Steps in every CRUD operation:
+	1. URL string
+	2. Establish connection between java and mongoDB using URL
+	3. Connect to the a specific DB
+	4. Specify to collection name
+	5. Run the specific operation
+	6. Close the connection
