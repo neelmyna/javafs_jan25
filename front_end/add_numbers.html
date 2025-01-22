@@ -1,0 +1,44 @@
+<!Doctype HTML>
+<html lang="en-US">
+	<head>
+		<title> Addition of Two numbers </title>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+			crossorigin="anonymous"></script>
+		<script type="text/javascript">			
+			function doSum(){ // $ and jQuery are synonymous
+				var a = parseInt($("#firstNum").val());
+				var b = parseInt($("#secondNum").val());
+				var c = a + b;
+				$("#sumNum").html(c);				
+			}
+			function f1() {
+				$('#idAddAction').click(doSum);
+				$("#firstNum").val(10)
+				$("#secondNum").val(20)
+			}
+			$( document ).ready(f1);
+			
+			
+		</script>
+	</head>
+	<!--body onload="f1();"-->
+	<body>
+		<h2> Addition of Two numbers </h2>
+		
+		
+		<div>
+			Enter First Number: <input type="text" id="firstNum">
+		</div>
+		<div>
+			Enter Second Number: <input type="text" id="secondNum">
+		</div>
+		<div>
+			Sum is: <span id="sumNum"></span>
+		</div>
+		<div>
+			<input type="button" value="Add" id="idAddAction">
+		</div>
+	</body>
+</html>
+			

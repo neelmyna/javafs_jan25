@@ -1,0 +1,166 @@
+HTML Notes:
+
+To develop/edit a html file in the browser itself:
+S1: Click on 3 verticle dots on top right corner (Browser Menu)
+S2: More Tools
+S3: Developer Tools
+S4: Sources -> File system -> Add Folder to Workspace -> ALLOW
+Open the file to edit
+
+* The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).
+
+* HTML Elements can be NESTED:
+e.g.
+<p>My cat is <strong>very</strong> grumpy.</p>
+
+* HTML is case-insensitive language.
+
+* For quotes, Double or single can be used, but both cannot be used in the same line.
+
+* PROPER USE OF QUOTES
+<a href='http://www.example.com' title='Isn't this fun?'>A link to my example.</a>
+
+THE ABOVE WONT WORK. Instead, you need to do this:
+
+<a href='http://www.example.com' title='Isn&apos;t this fun?'>A link to my example.</a>
+
+* To include the Special characters of HTML in the text:
+Literal 	character reference
+<	    	&lt;
+>			&gt;
+"			&quot;
+'			&apos;
+&			&amp;
+
+ATTRIBUTES:
+
+* href: This attribute's value specifies the web address for the link. For example: href="https://www.mozilla.org/".
+
+* title: The title attribute specifies extra information about the link, such as a description of the page that is being linked to. For example, title="The Mozilla homepage".
+This appears as a tooltip when a cursor hovers over the element.
+
+* target: The target attribute specifies the browsing context used to display the link. For example, target="_blank" will display the link in a new tab. If you want to display the linked content in the current tab, just omit this attribute.
+
+BOOLEAN ATTRIBUTES:
+
+<input type="text" disabled="disabled">
+As shorthand, it is acceptable to write this as follows:
+
+<!-- using the disabled attribute prevents the end user from entering text into the input box -->
+<input type="text" disabled>
+
+<!-- text input is allowed, as it doesn't contain the disabled attribute -->
+<input type="text">
+
+
+TAGS
+1. <html>
+This element wraps all the content on the page. also called as Root Tag
+
+2. <head>
+* The <head> element is a container for metadata (data about data) and is placed between the <html> tag and the <body> tag.
+* Metadata is data about the HTML document. Metadata is not displayed.
+* Metadata typically define the document title, character set, styles, scripts, and other meta information.
+
+The following elements can go inside the <head> element:
+<title> (required in every HTML document)
+<style>
+<base>
+<link>
+<meta>
+<script>
+<noscript>
+
+3. <em> Italic
+It is similar to <i> 
+
+4. <p> Paragraph tag
+BOTH THE BELOW TWO ARE SAME
+<p>Dogs are silly.</p>
+
+<p>Dogs        are
+         silly.</p>
+
+5. <title>
+It is used to set the title of the page. It appears on the browser tab.
+The page title is also used to describe the page when it is bookmarked.
+
+6. <body>
+This contains all the content that displays on the page, including text, images, videos, games, playable audio tracks, or whatever else.
+
+7. <img>   Empty Element (It doesn't have closing tag)
+To add a image, we use the attribute "src" and give source of the image file.
+
+8. <strong> 
+
+
+
+9. <div>
+
+
+10. <nav>
+
+
+11. <a> Anchor tag
+This is used to specify the "hyper link" and the attribute is "href"
+
+
+12. <ul>
+
+
+13. <ol>
+
+
+14. <li>
+
+
+15. <button>
+
+
+16. <meta>
+This element specifies the character set for your document to UTF-8
+Many <meta> elements include "name" and "content" attributes:
+
+"name" specifies the type of meta element it is; what type of information it contains.
+"content" specifies the actual meta content.
+<meta name="description" content="The MDN Web Docs Learning Area aims to provide
+complete beginners to the Web with all they need to know.">
+
+17. <ul>
+
+18. <pre>
+
+19. <link>
+The <link> element should always go inside the head of your document. This takes two attributes, rel="stylesheet", which indicates that it is the document's stylesheet, and href, which contains the path to the stylesheet file:
+
+<link rel="stylesheet" href="my-css-file.css">
+
+20. <style>
+
+LIBRARY SYSTEM DESIGN
+
+Guest Landing Page:
+Welcome msg
+Member ID text box and submit button
+   Search Book -> Request Book
+   Renew Book (version2)
+   
+Admin Landing Page:
+Create Member (->)
+Search Member(by member id)
+  View Member
+Members List (Expandible / Collapsible)
+  View Member
+    Deactivate/Delete
+    Modify Member details
+Book Catalog
+  Add Book
+  Search Book
+    Modify Book (Add copy, Delete Copy)
+    Remove Book
+  
+https://docs.python.org/3/library/pdb.html
+
+https://www.youtube.com/watch?v=NrkT8OIO6NU
+
+https://www.mygov.in/covid-19/?target=webview&type=campaign&nid=0
