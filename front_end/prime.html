@@ -1,0 +1,147 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> ES6 Tutorials </title>
+		<style>
+		div {
+			padding: 10px;
+		}
+		 div > label {
+			display: inline-block;
+			padding: 5 px;
+			width: 200px;
+		 }
+		 input[type="button"] {
+			margin-top:10px;
+		 }
+		</style>
+		<script>
+		// Tutorial to learn Objects in JS
+			function function1() {
+				const Employee = {
+					id : 1234,
+					name : 'Nithin',
+					coding() {
+						console.log("From the function")
+					} // End of method definition
+				} // End of Object definition
+				let val = document.getElementById("idFieldName").value;
+				//alert(val + " = " + Employee[val])
+				if(val == "name")
+					Employee[val] = document.getElementById("idFieldValue").value;
+				else if(val == "id")
+					Employee[val] = document.getElementById("idFieldValue").value;
+				// Employee.name = "Nithin Belamkar" (Direct way of assiging value)
+				Employee.coding();
+				//alert(val + " = " + Employee[val])
+				idNewValue.innerHTML = " New Value =  ID:" + Employee.id + ", " + "Name:" + Employee.name
+			}
+		</script>
+	</head>
+	<body>
+		<h2> Dynamically accessing Fields of JS Object </h2>
+		<div>
+			<label for="idFieldName"> Enter Field Name:
+			<input type="text" id="idFieldName">
+			<label for="idFieldValue"> Enter Field Value:
+			<input type="text" id="idFieldValue">
+			<input type="button" onclick=function1(); value="Submit">
+			<br>
+			<hr>
+			<br>
+			<pre id="idOldValue" style="font-size:20px;"> Old Value = ID:1234, Name:Nithin </pre>
+			<br>
+			<pre id="idNewValue" style="font-size:20px;"> </pre>
+		</div>	
+	</body>
+</html>
+-->
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> ES6 Tutorials </title>
+		
+		<style>
+		div {
+			padding: 5px;
+		}
+		div > label {
+			display: inline-block;
+			padding: 5px;
+			width: 200px;
+			font-weight: bold;
+
+		 }
+		 input[type="button"] {
+			margin-left:10px;
+			background-color:orange;
+			font-weight:bold;
+			padding:5px;
+			color:white;
+			border-radius: 5px;
+			border:2px solid brown;
+		 }
+ 		 input[type="text"] {
+			padding: 5px;
+			border-radius: 5px;
+			border: 2px solid brown;
+		 }
+		 h3 {
+			margin-left:10px;
+		 }
+		</style>
+		
+		<script>
+			const findCube = num =>  num*num*num
+			function doJob() {
+				let num = parseInt(idFieldName.value)
+				let cube = findCube(num)
+				idOutput.innerHTML = "Cube of " + num + " is " + cube
+			}
+		</script>
+	<head>
+		
+	<body>
+		<div>
+			<label for="idFieldName"> Enter a Number:
+			<input type="text" id="idFieldName">
+		</div>
+		<div>
+			<input type="button" onclick=doJob(); value="Find Cube">
+		</div>
+		<div>
+			<h3 id="idOutput"> Click Me To get Cube of the number </h3>
+		</div>
+	</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> ES6 Tutorials </title>
+		<script>
+		// Illustration of 'this' in Js. Note that even functions in JS is an object.
+			const Student = {
+				name: "Nithin",
+				study() {
+					alert(this);
+				}
+			}
+			Student.study() // calling the method via the object, CALL VIA OBJECT
+			let s = Student.study // We created a refernce 's' to the method/function
+			document.write(s) // Printing the method/function via the reference
+			s() // Making call to the function via the reference. This way of calling is called as STAND ALONE CALL
+			
+			//When we use CALL VIA OBJECT, the object referenced is the object which is used to invoke the method.   Student.study()
+			//When we use the STAND ALONE CALL, the object that is used is the WINDOW OBJECT by the browser.
+		</script>
+	</head>
+	<body>
+		<div>
+			<h3> Learning this in JS </h3>
+		</div>
+	</body>
+</html>

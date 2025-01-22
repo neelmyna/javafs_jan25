@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<title>OS20 HTML tutorial
+		</title>
+		<!-- Here are css and js link files -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+	</head>
+	<body>
+	<!--start of nav bar-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+		<div class="container-fluid">
+		<a class="navbar-brand" href="#"> <b>Outstanding20</b></a>
+			<button 
+			class="navbar-toggler" type="button"
+			data-bs-toggle="collapse" 
+			data-bs-target="#QuesNumMenu"
+			aria-controls="QuesNumMenu" 
+			aria-expanded="false" 
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="QuesNumMenu">
+	<!-- QuesNumMenu starts-->
+     <ul class="nav nav-tabs" id="QuesTab" role="tablist">
+        <li class="nav-item" role="presentation">
+		<button
+          class="nav-link active" 
+		  id = "idQues1-tab"
+		  data-bs-toggle="tab"
+		  data-bs-target="#idQues1"
+		  type="button" role="tab"
+		  aria-controls="idQues1"
+		  aria-selected="true">1
+        </li>
+		<li class="nav-item" role="presentation">
+		<button
+          class="nav-link" 
+		  id = "idQues2-tab"
+		  data-bs-toggle="tab"
+		  data-bs-target="#idQues2"
+		  type="button" role="tab"
+		  aria-controls="idQues2"
+		  aria-selected="true">2
+        </li>
+		<li class="nav-item" role="presentation">
+		<button
+          class="nav-link" 
+		  id = "idQues3-tab"
+		  data-bs-toggle="tab"
+		  data-bs-target="#idQues3"
+		  type="button" role="tab"
+		  aria-controls="idQues3"
+		  aria-selected="true">3
+        </li>
+		<li class="nav-item" role="presentation">
+		<button
+          class="nav-link" 
+		  id = "idQues4-tab"
+		  data-bs-toggle="tab"
+		  data-bs-target="#idQues4"
+		  type="button" role="tab"
+		  aria-controls="idQues4"
+		  aria-selected="true">4
+        </li>
+		<li class="nav-item" role="presentation">
+		<button
+          class="nav-link" 
+		  id = "idQues5-tab"
+		  data-bs-toggle="tab"
+		  data-bs-target="#idQues5"
+		  type="button" role="tab"
+		  aria-controls="idQues5"
+		  aria-selected="true">5
+        </li>
+		<li class="nav-item" role="presentation">
+		<button
+          class="nav-link" 
+		  id = "idQues6-tab"
+		  data-bs-toggle="tab"
+		  data-bs-target="#idQues6"
+		  type="button" role="tab"
+		  aria-controls="idQues6"
+		  aria-selected="true">6
+        </li>
+		<li class="nav-item" role="presentation">
+		<button
+          class="nav-link" 
+		  id = "idQues7-tab"
+		  data-bs-toggle="tab"
+		  data-bs-target="#idQues7"
+		  type="button" role="tab"
+		  aria-controls="idQues7"
+		  aria-selected="true">7
+        </li>
+		<li class="nav-item" role="presentation">
+		<button
+          class="nav-link" 
+		  id = "idQues8-tab"
+		  data-bs-toggle="tab"
+		  data-bs-target="#idQues8"
+		  type="button" role="tab"
+		  aria-controls="idQues8"
+		  aria-selected="true">8
+        </li>
+		<li class="nav-item" role="presentation">
+		<button
+          class="nav-link" 
+		  id = "idQues9-tab"
+		  data-bs-toggle="tab"
+		  data-bs-target="#idQues9"
+		  type="button" role="tab"
+		  aria-controls="idQues9"
+		  aria-selected="true">9
+        </li>
+		<li class="nav-item" role="presentation">
+		<button
+          class="nav-link" 
+		  id = "idQues10-tab"
+		  data-bs-toggle="tab"
+		  data-bs-target="#idQues10"
+		  type="button" role="tab"
+		  aria-controls="idQues10"
+		  aria-selected="true">10
+        </li>
+		<li class="nav-item" role="presentation">
+		<button
+          class="nav-link" 
+		  id = "idQues11-tab"
+		  data-bs-toggle="tab"
+		  data-bs-target="#idQues11"
+		  type="button" role="tab"
+		  aria-controls="idQues11"
+		  aria-selected="true">11
+        </li>
+		</ul>
+		</div>
+	</div>
+</nav>
+<!--end menu bar-->
+<div class ="tab-content" id="quesTabContent">
+	<div class="tab-pane fade show active" id="idQues1" role="tabpanel" aria-labelledy="idQues1-tab-">
+<!-- Q1 starts-->
+	<div class = "container border rounded-2 mt-4 p-0 border-primary">
+		<h3 class="bg-warning text-light border rounded border-danger p-2">Q1. String 
+	rotation based on squares </h3>		
+		<div class = "container px-4">
+			<p>You are given a list of strings each having 2 components to it - word and integer. These 2 components are separted by :</p>
+			<ul>
+				<li>If the square of digits in the number component is even, then you must rotate the word to the right by 1.</li>
+				<li>If the square of digits in the number component is odd, then you must rotate the word to the left by 2.</li>
+			</ul>
+			<p>
+				Finally, print the rotated word.
+			</p>
+			<h5>Example Input:</h5>
+			<pre>rhdt:246, gftd:1246</pre>
+			<h5>Output:</h5>
+			<pre>trhd
+ftdgh </pre>
+			<h5>Explanation: </h5>
+<!--
+<pre style="line-height:40px;"><span class="bg-light p-1 border">2*2+4*4+6*6 = 56</span> which is even so rotate <span class="bg-light p-1 border">rhdt -> trhd</span>
+<span class="bg-light p-1 border">1*1+2*2+4*4+6*6 = 57</span> which is odd so rotate <span class="bg-light p-1 border">ftdgh -> ghftd</span> </pre>
+-->
+<pre><mark>2*2+4*4+6*6 = 56</mark> which is even so rotate <mark>rhdt -> trhd</mark>
+
+<mark>1*1+2*2+4*4+6*6 = 57</mark> which is odd so rotate <mark>ftdgh -> ghftd</mark> 
+</pre>
+        </div>
+		</div>
+		</div>
+		
+<!--question 2 starts-->
+	<div class="tab-pane fade" id="idQues2" role="tabpanel" aria-labelledy="idQues2-tab">
+	<div class = "container border rounded-2 mt-4 p-0 border-primary">
+		<h3 class="bg-warning text-light border rounded border-danger p-2">Q2. Unique substring of a given string </h3>		
+		<div class = "container px-1">
+			<p>Given a string, we have to find the longest substring which is unique(that has no repetition)and whose size is at least 3. :</p>
+			
+			<p>
+				If more than one substring is found with max length then we have to print the one which appeared first in the string.
+			</p>
+			<p>
+			If no substring is present that matches the condition then we have to print -1
+			</p>
+			<h5>Example Input:</h5>
+			<pre>A@bcd1abx</pre>
+			<h5>Output:</h5>
+			<pre>A@bcd1a
+</pre>
+			
+
+			</div>
+		</div>
+		</div>
+		
+<!--question-3-->
+		<div class="tab-pane fade" id="idQues3" role="tabpanel" aria-labelledy="idQues3-tab">
+		<div class = "container border rounded-2 mt-4 p-0 border-primary">
+		<h3 class="bg-warning text-light border rounded border-danger p-2">Q3.Largest even number from string </h3>		
+		<div class = "container px-1">
+			<p>Take input as a string. This string is a mixture of letters, 
+integers and special char. From this string , find the largest even number that can be possibly formed after removing the duplicates.
+			</p>
+			
+			<p>
+				If an event is not formed then return -1
+			</p>
+			
+			<h5>Example Input:</h5>
+			<pre>infosys@337
+</pre>
+			<h5>Output:</h5>
+			<pre>-1
+</pre>
+		<h5>Explanation</h5>
+			<pre><mark>No even number can be formed</mark></pre>
+		
+       <h5>Example Input:</h5>
+			<pre>Hello#81@21349
+</pre>
+			<h5>Output:</h5>
+			<pre>984312
+</pre>			
+
+			</div>
+		</div>
+		</div>
+		
+<!-- question 4-->
+
+		<div class="tab-pane fade" id="idQues4" role="tabpanel" aria-labelledy="idQues4-tab">
+		<div class = "container border rounded-2 mt-4 p-0 border-primary">
+		<h3 class="bg-warning text-light border rounded border-danger p-2">Q4.
+		Prefix which is also a suffix </h3>		
+		<div class = "container px-1">
+			<p>Given a string, find the longest length of a prefix which is also a suffix.</p>
+			
+	
+			<h5>Example Input 1:</h5>
+			<pre>aaa</pre>
+			<h5>Output:</h5>
+			<pre>1
+</pre>
+			<h5>Example Input 2:</h5>
+			<pre>abcdab</pre>
+			<h5>Output:</h5>
+			<pre>2
+</pre>	
+
+			</div>
+		</div>
+		</div>
+		
+		<!-- question 5-->
+		
+		<div class="tab-pane fade" id="idQues5" role="tabpanel" aria-labelledy="idQues5-tab">
+		<div class = "container border rounded-2 mt-4 p-0 border-primary">
+		<h3 class="bg-warning text-light border rounded border-danger p-2">Q5.
+		Concatenate and add numbers </h3>		
+		<div class = "container px-1">
+			<p>You are given a string as input. The string contains comma separated numbers. It is guaranteed that numbers 5 and 8 are present in the string.
+Also, the number 8 always come after 5.
+
+			</p>
+			
+			<p>
+				You have to generate 2 numbers num1 and num2, such that:
+			</p>
+			<p>
+			Your task is to print the sum of num1 and num2.
+			</p>
+			
+			<h5>Example Input:</h5>
+			<pre>3,2,6,5,1,4,8,9
+</pre>
+			<h5>Output:</h5>
+			<pre>5168
+</pre>
+		<h5>Calculation</h5>
+			<pre>3+2+6+9 = 20
+</pre>
+		
+       <h5>num</h5>
+			<pre>5148
+</pre>
+			<h5>Output:</h5>
+			<pre>5248 + 20 = 5168
+</pre>			
+
+			</div>
+		</div>
+		</div>
+		
+		<!--question 6-->
+		
+		<div class="tab-pane fade" id="idQues6" role="tabpanel" aria-labelledy="idQues6-tab">
+		<div class = "container border rounded-2 mt-4 p-0 border-primary">
+		<h3 class="bg-warning text-light border rounded border-danger p-2">Q6. String 
+	Rotation instructions </h3>		
+		<div class = "container px-1">
+			<p>You are given a string, in the format:</p>
+			<p>String:num1:num2:num3</p>
+			<p>The string can contain characters, special characters and also numbers. num1, num2, num3 are instructions to rotate the string.</p>
+			<ul>
+				<li>You have to rotate the string to the right side by num1 positions.</li>
+				<li>Then rotate the string to the
+				left side by num2 positions.</li>
+				<li>Finally, remove all the elements that are present at the indexes that are present at the indexes that are a multiple of num3.</li>
+			</ul>
+			
+			<h5>Example Input:</h5>
+			<pre>Hellowelcome2@python:5:2:3</pre>
+			<h5>Output:</h5>
+			<pre>One1o1e1om2@yt
+</pre>
+			</div>
+			</div>
+		</div>
+		
+<!--question 7-->
+
+	<div class="tab-pane fade" id="idQues7" role="tabpanel" aria-labelledy="idQues7-tab">	
+        <div class = "container border rounded-2 mt-4 p-0 border-primary">
+		<h3 class="bg-warning text-light border rounded border-danger p-2">Q7.
+		Inverted hollow full pyramid </h3>		
+		<div class = "container px-1">
+			<p>Write the program to take integer as an input and to print the full inverted hollow pyramid using stars according to given input.
+
+			</p>
+			
+			<p>
+				Input Format:
+			</p>
+			<p>
+			Take integer input from stdin			
+			</p>
+			<p>
+				Output Format:
+			</p>
+			<p>
+			Print the desired pattern    			
+			</p>
+			
+			<h5>Output:</h5>
+			<pre>6
+</pre>
+			<h5>Output:</h5>
+
+<pre>			
+           * * * * * *
+            *       *
+             *     *
+              *   *
+               * *
+                * 
+</pre>
+
+		
+       <p>Complete the given method solve which takes as parameter a list called list. you don’t have to take any input.
+	   Just print the output as per the given format.</p>
+			
+
+			</div>
+		</div>
+		</div>
+		
+<!--question 8-->
+
+		<div class="tab-pane fade" id="idQues8" role="tabpanel" aria-labelledy="idQues8-tab">
+        <div class = "container border rounded-2 mt-4 p-0 border-primary">
+		<h3 class="bg-warning text-light border rounded border-danger p-2">Q8.
+		Canvas Frames </h3>		
+		<div class = "container px-1">
+			<p>Given n sticks whose lengths equals   a1, a2, …. an.
+			</p>
+			
+			<p>
+				 And you want to make a h * w-sized frame, to make a frame you need two sticks whose lengths equal w. Specially, to make a square frame (when h = w),you needs four sticks of the same length.
+			</p>
+			<p>
+			You have to calculate, what is the maximum number of frames that can be made  using the given sticks. The area of each frame doesn’t matter. We want the most number of frames possible.	
+			</p>
+			<p>
+			Note: It is not necessary to use all the sticks you have.		
+			</p>
+			<h5>Example Input:</h5>
+			<pre>[2,2,3,2,3,2]
+</pre>
+			<h5>Output:</h5>
+			<pre>1
+</pre>
+		<h5>Explaination:</h5>
+<pre><mark>Either you can make a frame of size 2*3 or 3*2 or 2*2 but you can make only one frame because after making a frame of any of these size,
+there are only 2 sticks left.<mark></pre>
+       
+			
+            </div>
+			</div>
+		</div>
+		
+<!--question 9 starts-->
+
+<div class="tab-pane fade" id="idQues9" role="tabpanel" aria-labelledy="idQues9-tab">
+        <div class = "container border rounded-2 mt-4 p-0 border-primary">
+		<h3 class="bg-warning text-light border rounded border-danger p-2">Q9.
+		Rectangle area frequency </h3>		
+		<div class = "container px-1">
+			<p>You are given a list of tuples, called list1. Each tuple has 2 elements signifying the length
+			and the breadth of a rectangle.
+
+			</p>
+			
+			<p>
+				Some rectangles may be of same area,
+				while other may result in a different area.
+			</p>
+			<p>
+Your task is to list down all possible areas, and the frequency of each area.
+ Print in ascending order of areas.			</p>
+			
+			<h5>Example Input:</h5>
+			<pre>[(1,40), (2,3), (2,2), (10,2), (4,5)]
+</pre>
+			<h5>Output:</h5>
+			<pre>4:2<br>6:1<br>20:2
+</pre>
+		
+       <p>Complete the given method solve which takes as parameter a list called list. you don’t have to take any input.
+	   Just print the output as per the given format.</p>
+			
+            </div>
+			</div>
+		</div>
+		
+<!--question 10 starts-->
+
+		<div class="tab-pane fade" id="idQues10" role="tabpanel" aria-labelledy="idQues10-tab">
+        <div class = "container border rounded-2 mt-4 p-0 border-primary">
+		<h3 class="bg-warning text-light border rounded border-danger p-2">Q10.
+		Merge K-sorted list </h3>		
+		<div class = "container px-1">
+			<p>Merge K sorted linked list and return it as one sorted list.
+
+			</p>
+			<h5>Example Input1:</h5>
+			<pre>1 -> 10 -> 20<br>4 -> 11 -> 13<br>3 -> 8 -> 9
+</pre>
+			<h5>Output:</h5>
+			<pre>1 -> 3 -> 24 -> 8 -> 9 -> 10 -> 11 -> 13 -> 20
+</pre>
+            <h5>Example Input2:</h5>
+			<pre>3 -> 3 -> 4 -> 4<br>1 -> 1 -> 3 -> 4 -> 5
+</pre>
+			<h5>Output:</h5>
+			<pre>1 -> 1 -> 3 -> 3 -> 3 -> 4 -> 4 -> 4 -> 5
+</pre>
+		</div>
+		</div>
+		</div>
+		
+<!--question 11 starts-->
+
+		<div class="tab-pane fade" id="idQues11" role="tabpanel" aria-labelledy="idQues11-tab">
+        <div class = "container border rounded-2 mt-4 p-0 border-primary">
+		<h3 class="bg-warning text-light border rounded border-danger p-2">Q11.
+		Distinct Numbers in Windows</h3>		
+		<div class = "container px-1">
+			<p>You are given an array of N integers, A1, A2, …., AN and an integer K. Return the count of distinct numbers in all windows of size K.
+			</p>
+			<p>Formally, return an array of size N-k+1 where i’th element in this array contains number of distinct elements in sequence Ai, Ai+1, ….. , Ai+K-1.
+			</p>
+			<p>Note: If K>N, return empty array.
+			</p>
+			<h5>Example Input:</h5>
+			<pre>A = [1,2,1,3,4,3]<br>K = 3
+</pre>
+			<h5>Output:</h5>
+			<pre>[2,3,3,2]
+</pre>
+            <h5>Explaination</h5>
+			<pre><mark>All windows of size K are<br>[1,2,1]<br>[2,1,3]<br>[1,3,4]<br>[3,4,3]<mark></pre>
+		
+		</div>
+		</div>
+		</div>
+
+</div>
+	</body>
+</html>

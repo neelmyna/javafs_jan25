@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> Welcome Design </title>
+		<link href="Asset/Bootstarp/bootstrap.min.css" rel="stylesheet">
+		
+		<script src="Asset/Bootstarp/bootstrap.bundle.min.js" > </script>
+		
+	</head>
+	<body>
+<!-- Menu Bar-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid"> <!-- This Outer div is for entire NavBar -->
+            <a class="navbar-brand" href="#"> <b>Outstanding20</b> </a>
+                <button
+					class="navbar-toggler" type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#QuesNumMenu"
+					aria-controls="QuesNumMenu"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="QuesNumMenu">
+		<!-- Ques Menu Starts-->	
+				<ul class="nav nav-tabs" id="quesTab" role="tablist">
+					<li class="nav-item" role="presentation">
+						<button 
+							class="nav-link" 
+							id="idQues1-tab" 
+							data-bs-toggle="tab"
+							data-bs-target="#idQues1" 
+							type="button" role="tab" 
+							aria-controls="idQues1" 
+							aria-selected="true">1
+						</button>
+					</li>
+					
+					<li class="nav-item" role="presentation">
+						<button 
+							class="nav-link active"
+							id="idQues2-tab" 
+							data-bs-toggle="tab"
+							data-bs-target="#idQues2" 
+							type="button" role="tab" 
+							aria-controls="idQues2" 
+							aria-selected="true">2
+						</button>
+					</li>
+					
+					<li class="nav-item" role="presentation">
+						<button 
+							class="nav-link"
+							id="idQues3-tab" 
+							data-bs-toggle="tab"
+							data-bs-target="#idQues3" 
+							type="button" role="tab" 
+							aria-controls="idQues3" 
+							aria-selected="true">3
+						</button>
+					</li>  
+					
+					<li class="nav-item" role="presentation">
+						<button 
+							class="nav-link"
+							id="idQues4-tab" 
+							data-bs-toggle="tab"
+							data-bs-target="#idQues4" 
+							type="button" role="tab" 
+							aria-controls="idQues4" 
+							aria-selected="true">4
+						</button>
+					</li>
+				</ul>
+		<!-- End of Ques Menu -->
+	        </div>
+	    </div> <!-- End of Outer Division -->
+	</nav>
+<!-- End Menu Bar-->	
+<div class="tab-content" id="quesTabContent">
+<!-- Q1 Tab Starts-->	
+	<div class="tab-pane fade" id="idQues1" role="tabpanel" aria-labelledby="idQues1-tab">
+<!-- Q1 Starts-->	
+	<div class = "container border rounded-2 mt-3 p-0">
+	<h3 class="bg-warning text-light border rounded border-info p-2">Q1: Unique substring of given string</h3>
+	<div class = "container px-4">
+		<p>Given a string, we have to find the longest substring which is unique (that has no repetition of characters) and whose size is at least 3.</p>
+		<p>
+		If more than one substring is found with max length then we have to print which appeared first in the string.
+		</p>
+		<p>
+		If no substring is present that matches the condition then we have to print -1.
+		</p>
+		<h5>Example Input:</h5>
+		<pre>A@bcd1abx</pre>
+		<h5>Output:</h5>
+<pre>A@bcd1a</pre>
+    </div>
+	</div>
+	<!-- Q1 Tab Ends-->	
+	</div>
+<!-- Q1 Ends-->	
+
+<!-- Q2 Tab Starts-->	
+	<div class="tab-pane fade show active" id="idQues2" role="tabpanel" aria-labelledby="idQues2-tab">
+<!-- Q2 Starts-->	
+		<div class = "container border rounded-2 mt-3 p-0">
+	<h3 class="bg-warning text-light border rounded border-info p-2">Q2: Arrangement of Paranthesis</h3>
+	<div class = "container px-4">
+		<p>Take as input a string of paranthesis. Count the number of pairs if properly arranged</p>
+		<p>
+		If they are not properly arranged, then print -1.
+		</p>
+		<h5>Example Input:</h5>
+		<pre>{{{}{}}}</pre>
+		<h5>Output:</h5>
+<pre>4 </pre>
+    </div>
+	</div>
+<!-- Q2 Ends-->	
+	</div>
+<!-- Q2 Tab Ends-->	
+	
+<!-- Q3 Tab Starts-->	
+	<div class="tab-pane fade" id="idQues3" role="tabpanel" aria-labelledby="idQues3-tab">
+<!-- Q3 Starts-->	
+	<div class = "container border rounded-2 mt-3 p-0">
+	<h3 class="bg-warning text-light border rounded border-info p-2">Q3: String 
+	rotation based on squares </h3>
+	<div class = "container px-4">
+		<p>You are given a list of strings each having 2 components to it - word and integer. These 2 components are separted by :.</p>
+		<ul>
+		<li>If the square of digits in the number component is even, then you must rotate the word to the right by 1.</li>
+		<li>If the square of digits in the number component is odd, then you must rotate the word to the left by 2.</li>
+		</ul>
+		<p>
+		Finally, print the rotated word.
+		</p>
+		<h5>Example Input:</h5>
+		<pre>rhdt:246,gftd:1246</pre>
+		<h5>Output:</h5>
+<pre>trhd
+ftdgh </pre>
+        <h5>Explanation: </h5>
+
+<pre><mark>2*2+4*4+6*6 = 56</mark> which is even so rotate <mark>rhdt -> trhd</mark>
+
+<mark>1*1+2*2+4*4+6*6 = 57</mark> which is odd so rotate <mark>ftdgh -> ghftd</mark> </pre>
+    </div>
+	</div>
+<!-- Q3 Ends-->
+	</div>
+<!-- Q3 Tab Ends-->	
+
+<!-- Q4 Tab Starts-->	
+	<div class="tab-pane fade" id="idQues4" role="tabpanel" aria-labelledby="idQues4-tab">
+<!-- Q4 Starts-->	
+		<div class = "container border rounded-2 mt-3 p-0">
+	<h3 class="bg-warning text-light border rounded border-info p-2">Q4: Arrangement of Parranthesis and Braces</h3>
+	<div class = "container px-4">
+		<p>You are given with a string as input which consists of paranthesis and braces.</p>
+		<p>
+		Check if they are arranged properly.
+		<ul>
+		<li>Paranthesis and braces can come inside eachother</li>
+		<li>If they are arranged properly then print the total pair. If not arranged properly then print: IMPROPER ARRANGEMENT </li>
+		</ul>
+		</p>
+		<h5>Example Input:</h5>
+		<pre>{({)}}</pre>
+		<h5>Output:</h5>
+<pre> IMPROPER ARRANGEMENT</pre>
+    </div>
+	</div>	
+<!-- Q4 Ends-->	
+	</div>
+<!-- Q4 Tab Ends-->	
+
+</div>
+	</body>
+</html>

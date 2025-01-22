@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> Welcome Design </title>
+		<link href="Asset/Bootstarp/bootstrap.min.css" rel="stylesheet">
+		
+		<script src="Asset/Bootstarp/bootstrap.bundle.min.js" > </script>
+		
+	</head>
+	<body>
+
+<!-- Top Bar-->
+	<nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Outstanding20</a>
+                <button
+					class="navbar-toggler" type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#pageMenu"
+					aria-controls="pageMenu"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="pageMenu">
+				<!-- Menus -->
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="qset13.html">Coding Questions</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="qset14.html">InfyTQ Set1</a>
+					</li>
+				</ul>
+				<!-- End Menus -->
+	        </div>
+	    </div>
+	</nav>
+<!-- End Top Bar-->	
+
+<!-- Menu Bar-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Coding Questions</a>
+                <button
+					class="navbar-toggler" type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#QuesNumMenu"
+					aria-controls="QuesNumMenu"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="QuesNumMenu">
+		<!-- Ques Menu -->	
+				<ul class="nav nav-tabs" id="quesTab" role="tablist">
+					<li class="nav-item" role="presentation">
+						<button 
+							class="nav-link active" 
+							id="idQues1-tab" 
+							data-bs-toggle="tab"
+							data-bs-target="#idQues1" 
+							type="button" role="tab" 
+							aria-controls="idQues1" 
+							aria-selected="true">1
+						</button>
+					</li>
+					
+					<li class="nav-item" role="presentation">
+						<button 
+							class="nav-link"
+							id="idQues2-tab" 
+							data-bs-toggle="tab"
+							data-bs-target="#idQues2" 
+							type="button" role="tab" 
+							aria-controls="idQues2" 
+							aria-selected="true">2
+						</button>
+					</li>
+					<li class="nav-item" role="presentation">
+						<button 
+							class="nav-link"
+							id="idQues3-tab" 
+							data-bs-toggle="tab"
+							data-bs-target="#idQues3" 
+							type="button" role="tab" 
+							aria-controls="idQues3" 
+							aria-selected="true">3
+						</button>
+					</li>  
+					<li class="nav-item" role="presentation">
+						<button 
+							class="nav-link"
+							id="idQues4-tab" 
+							data-bs-toggle="tab"
+							data-bs-target="#idQues4" 
+							type="button" role="tab" 
+							aria-controls="idQues4" 
+							aria-selected="true">4
+						</button>
+					</li>
+				</ul>
+		<!-- End Ques Menu -->
+	        </div>
+	    </div>
+	</nav>
+<!-- End Menu Bar-->	
+<div class="tab-content" id="quesTabContent">
+<!-- Q1 Tab Starts-->	
+	<div class="tab-pane fade show active" id="idQues1" role="tabpanel" aria-labelledby="idQues1-tab">
+<!-- Q1 Starts-->	
+	<div class = "container border rounded-2 mt-3 p-0">
+	<h3 class="bg-warning text-light border rounded border-info p-2">Q1: Unique substring of given string</h3>
+	<div class = "container px-4">
+		<p>Given a string, we have to find the longest substring which is unique (that has no repetition) and whose size is at least 3.</p>
+		<p>
+		If more than one substring is found with max length then we have to print which appeared first in the string.
+		</p>
+		<p>
+		If no substring is present that matches the condition then we have to print -1.
+		</p>
+		<h5>Example Input:</h5>
+		<pre>A@bcd1abx</pre>
+		<h5>Output:</h5>
+<pre>A@bcd1a</pre>
+    </div>
+	</div>
+	<!-- Q1 Tab Ends-->	
+	</div>
+<!-- Q1 Ends-->	
+
+<!-- Q2 Tab Starts-->	
+	<div class="tab-pane fade" id="idQues2" role="tabpanel" aria-labelledby="idQues2-tab">
+<!-- Q2 Starts-->	
+		<div class = "container border rounded-2 mt-3 p-0">
+	<h3 class="bg-warning text-light border rounded border-info p-2">Q2: Largest palindromic substring</h3>
+	<div class = "container px-4">
+		<p>Take as input a string. Find the longest possible substring from this string which is also a palindrome.</p>
+		<p>
+		Finally, print the rotated word.
+		</p>
+		<h5>Example Input:</h5>
+		<pre>dcodocir</pre>
+		<h5>Output:</h5>
+<pre>codoc
+ftdgh </pre>
+    </div>
+	</div>
+<!-- Q2 Ends-->	
+	</div>
+<!-- Q2 Tab Ends-->	
+	
+
+<!-- Q3 Tab Starts-->	
+	<div class="tab-pane fade" id="idQues3" role="tabpanel" aria-labelledby="idQues3-tab">
+<!-- Q3 Starts-->	
+	<div class = "container border rounded-2 mt-3 p-0">
+	<h3 class="bg-warning text-light border rounded border-info p-2">Q3: String 
+	rotation based on squares </h3>
+	<div class = "container px-4">
+		<p>You are given a list of strings each having 2 components to it - word and integer. These 2 components are separted by :.</p>
+		<ul>
+		<li>If the square of digits in the number component is even, then you must rotate the word to the right by 1.</li>
+		<li>If the square of digits in the number component is odd, then you must rotate the word to the left by 2.</li>
+		</ul>
+		<p>
+		Finally, print the rotated word.
+		</p>
+		<h5>Example Input:</h5>
+		<pre>rhdt:246,gftd:1246</pre>
+		<h5>Output:</h5>
+<pre>trhd
+ftdgh </pre>
+        <h5>Explanation: </h5>
+
+<pre><mark>2*2+4*4+6*6 = 56</mark> which is even so rotate <mark>rhdt -> trhd</mark>
+
+<mark>1*1+2*2+4*4+6*6 = 57</mark> which is odd so rotate <mark>ftdgh -> ghftd</mark> </pre>
+    </div>
+	</div>
+<!-- Q3 Ends-->
+	</div>
+<!-- Q3 Tab Ends-->	
+
+<!-- Q4 Tab Starts-->	
+	<div class="tab-pane fade" id="idQues4" role="tabpanel" aria-labelledby="idQues4-tab">
+<!-- Q4 Starts-->	
+		<div class = "container border rounded-2 mt-3 p-0">
+	<h3 class="bg-warning text-light border rounded border-info p-2">Q4: Consecutive numbers in matrix</h3>
+	<div class = "container px-4">
+		<p>You are given an m*n matrix such that n=m+1. In the given matrix, find if any number is consecutive for 3 times either in row, column, diagonals and print the num.</p>
+		<p>
+		If there are multiple such numbers then print minimum of those numbers.
+Input format
+		<ul>
+		<li>First line contains m, the number of rows</li>
+		<li>Following m lines contain n numbers</li>
+		</ul>
+		</p>
+		<h5>Example Input:</h5>
+		<pre>6 
+2 3 4 5 6 2 4
+2 3 4 7 6 7 6
+2 3 5 5 5 5 2
+2 3 1 1 2 1 3
+1 1 1 1 9 0 3
+2 3 1 1 5 1 2</pre>
+		<h5>Output:</h5>
+<pre>1</pre>
+    </div>
+	</div>	
+<!-- Q4 Ends-->	
+	</div>
+<!-- Q4 Tab Ends-->	
+
+</div>
+	</body>
+</html>
