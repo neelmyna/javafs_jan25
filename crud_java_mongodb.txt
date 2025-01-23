@@ -1,7 +1,8 @@
 Pizza Maven App (Java-mongoClient-MongoDB)
 
-File -> new -> maven project
-select simple project
+Open Eclipse:
+File -> new -> maven project (project...)
+select: create simple project
 groupid
 artifactid
 name
@@ -9,6 +10,7 @@ description
 	"pizza"
 Click -> Finish
 
+In the Package/Project explorer, expand the project folder:
 Right Click src/main/java -> create new package "pizza"
 
 Right Click package "pizza" -> create new class "Pizza"  (POJO class)
@@ -24,7 +26,7 @@ After description tag, introduce new tag:
 
 Now google search for "java mongoclient maven dependency"
 
-Copy the dependency tag from mvnrepository and paste it inside <dependencies> tag in pom.xml
+Copy the dependency tag from mvnrepository.com and paste it inside <dependencies> tag in pom.xml
 
 Now, we observe that maven dependencies folder appears in project explorer
 

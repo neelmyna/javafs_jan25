@@ -814,3 +814,19 @@ public class PersonOperations {
     }
     
 }
+---------------------------------------------
+WE shall run the mongodb server
+$ mongod
+
+Connect to mongoDb
+	URL: localhost  127.0.0.1
+	database name
+	username and password
+Dis-connect the DB
+insertPerson
+deletePerson
+UpdatePerson
+serachPerson
+listAllPersons
+
+-----------------------------------------------------
