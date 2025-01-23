@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="trainer app">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Nithin Neelakanta Rao">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Trainer Search App </title>
+    <style>
+        h2 {
+            font-family: consolas;
+            text-align: center;
+            font-style: oblique;
+            color: brown;
+        }
+
+        label {
+            font-size: 20px;
+            display: inline-block;
+            width: 100px;
+        }
+
+        .input {
+            width: 150px;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 2px;
+            border-radius: 3px;
+            height: 20px;
+            border-color: 5px solid brown;
+        }
+
+        div>div {
+            margin-bottom: 8px;
+        }
+
+        button {
+            margin-left: 110px;
+            background-color: yellow;
+            border-color: 5px solid brown;
+            height: 30px;
+            width: 100px;
+            border-radius: 5px;
+            font-size: 20px;
+            text-decoration: solid;
+        }
+    </style>
+</head>
+
+<body>
+    <h2> User Login Page </h2>
+    <div>
+        <div>
+            <label for="username"> Username </label>
+            <input class="input" type="text" value="" id="username">
+        </div>
+        <div>
+            <label for="password"> Password </label>
+            <input class="input" type="text" value="" id="password">
+        </div>
+        <button id="myButton" onclick="loginUser()"> Submit </button>
+    </div>
+    <script>
+        function loginUser() {
+            if (document.getElementById(username) == '') {
+                alert('username cannot be empty')
+                return
+            }
+            if (document.getElementById(password) == "") {
+                alert('password cannot be empty')
+                return
+            }
+            alert('User login successful')
+        }
+    </script>
+</body>
+
+</html>

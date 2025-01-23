@@ -1,0 +1,20 @@
+.form {
+	padding: 10px;
+	border: 1px solid silver;
+	border-radius: 20px;
+}
+
+.form > div {
+	padding: 10px;
+	margin-bottom: 5px;
+}
+
+.form > div > label {
+	display: inline-block;
+	min-width: 100px;
+}
+
+table, th, td {
+	border: 1px solid silver;
+	text-align: center;
+}

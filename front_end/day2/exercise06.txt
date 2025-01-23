@@ -1,0 +1,18 @@
+1. Design a web page with following requirements.
+We should add {product, qty, price and amount} to the cart.
+Cart data is printed using a table.
+The cart total amount is also displayed.
+Design:
+    Product     [           ]
+    Qty         [           ]
+    Price       [           ]
+    amount      [           ]  Calculated automatically
+	
+	Total Amount[			]
+
+Cart:
+    PRODUCT     QTY     PRICE     AMOUNT 
+    Lux Soap    10      50         500
+    Tea 50grm   1       60          60
+    2Rs.Coffee  20      2           40
+    Total Amount                Rs.600

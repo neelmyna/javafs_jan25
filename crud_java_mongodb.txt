@@ -19,6 +19,15 @@ Right Click package "pizza" -> create new class "PizzaDao"  (CRUD implementation
 
 Right Click package "pizza" -> create new class "PizzaService"  (Menu to run the App)
 
+Come to the Command prompt and run the command:
+mongod --version
+
+If you get unrecognised command, then see if you have installed mongoDb. There must be a folder inside C:/program files
+If not, download and install mongoDb (server, shell and Compass)
+If folder is present, then copy the path of bin folder:
+C:\Program Files\MongoDB\Server\7.0\bin
+To Environment(path) Variables
+
 Open pom.xml
 After description tag, introduce new tag:
 <dependencies>
@@ -54,3 +63,5 @@ Steps in every CRUD operation:
 	4. Specify to collection name
 	5. Run the specific operation
 	6. Close the connection
+	
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Student</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <h3>Create Student</h3>
+    <div class="container">
+        <form method="post" action="student-process.jsp">
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" id="name" name="name"
+                    class="form-control" required autofocus/>
+            </div>
+            <div class="form-group">
+                <label for="marks">marks</label>
+                <input type="number" id="marks" name="marks"
+                    class="form-control" required
+                    min="0" max="100"/>
+            </div>
+            <div class="form-group">
+                <label for="email_id">email id</label>
+                <input type="email" id="email_id" name="email_id"
+                class="form-control"
+                    required/>
+            </div>
+            <div class="form-group">
+                <label for="date_of_birth">date of birth</label>
+                <input type="date" id="date_of_birth" name="date_of_birth"
+                class="form-control" 
+                    required/>
+            </div>
+            <button type="submit" 
+                class="btn btn-success">Create Student</button>
+        </form>
+    </div>
+</body>
+</html>
