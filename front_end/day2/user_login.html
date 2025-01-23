@@ -32,7 +32,7 @@
             border-color: 5px solid brown;
         }
 
-        div>div {
+        div > div {
             margin-bottom: 8px;
         }
 
@@ -64,11 +64,11 @@
     </div>
     <script>
         function loginUser() {
-            if (document.getElementById(username) == '') {
+            if (document.getElementById("username").value == '') {
                 alert('username cannot be empty')
                 return
             }
-            if (document.getElementById(password) == "") {
+            if (document.getElementById("password").value == "") {
                 alert('password cannot be empty')
                 return
             }
