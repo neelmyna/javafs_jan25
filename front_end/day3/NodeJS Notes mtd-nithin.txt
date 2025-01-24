@@ -1,0 +1,415 @@
+*******************************************************************
+ExpressJS notes
+*******************************************************************
+React doesn't has its own API calling Methods. So we use Axios.
+
+First demonstrate FlightApp using BackEnd.
+Then Complete it using React
+
+Express is built on Node.
+Node is only the foundation software for BackEnd Apps. Express is one of the BackEnd Apps which sits on Node.
+
+Express doesn't have its own DB connecting APIs or facility.
+Hence we use "Mangooes" which works as bridge between Express and MangoDB
+
+Even in this case, we use Postman to check if BackEnd is working properly.
+
+Componenets in React we use for displaying pages.
+Data is part of the component. i.e. Data is not centralised but kept within the component. Thus data is maintained within the component in React.
+Framework is Redux and its Architechture is FLUX.
+
+React has 2 types of components:
+1. Function based
+2. Class based
+
+React makes the Data centralised which is abstracted by/for the user.
+
+List (List Page has Add new Flight)
+Add
+Edit (Edit Page has Delete Flight)
+
+Note: Moving from one page/menu-option to another is handled by React Router.
+---------------------------------------
+light app - CRUD operations - MERN [M(mongo) Express React Node] - Stack
+1. Backend - MongoDB datasource
+				mongo db database 
+2. Backend App - Node / Express / Mangoose
+			Express is a good server for backend app development
+				Web app
+				Web api app 
+			Mangoose 
+				Library / Framework for the mango db 
+3. Postman - to APIs of the backend app(also called backend app) 
+4. Frontend App - React (ES6) (class based) Components [Bootstrap based UI] / 
+						Pages (as components) using better UI framework ie Bootstrap 
+						State is maintained within component 
+						Note: State is not maintained centralized as flux pattern 
+								ie using redux framework 
+				  React router /
+						To switch between pages 
+				  axios
+						To make api calls to backend app
+5. Visual Studio Code
+-----------------------------------------
+Installations:
+-----------------------------------------
+	1. mongo db 
+	2. node and npm (Node Package Manager)
+	3. postman 
+	internet ready 
+	- permissions to connect to internet from npm Mongo DB 
+	4. create database -> collection(s) -> documents
+Collections are similar to tables in SQL (RDBMS) and documents are similar/synonymous to rows/tuples/records/objects.
+Backend:
+	5. npm package(local) installations for 
+		express, mongoose 
+Frontend:		
+	6. npm package(global) for react CLI (Command Line Interface)
+	7. npm package for axios, bootstrap, router (locally)
+----------------------------------------------------
+MongoDB Installation: (Old Way, for versions below 5.X.X)
+Download the msi file.
+Create folder named "data" in C drive and "db" as sub-folder
+Go to the progam files -> mongoDB -> In the address bar, type "cmd" and hit enter
+Now in the command prompt run the below command
+mongod --dbpath "C:/data"
+
+The above command runs the server. Keep the server running.
+From the mongoDB path, again open the command prompt.
+Run the command "mongo" to run the client
+We get the Prompt !!!
+-------------------------------------------
+MongoDB Installation: (New Way)
+
+MongoDB Server	(The Mongo DB software)
+https://www.mongodb.com/try/download/community
+Version: 7.0.12  (As of 12-08-2024)
+Make sure you download msi file, i.e. the installer
+Mongo Shell		(Command Prompt App to use Mongo DB)
+https://www.mongodb.com/try/download/shell
+Version: 2.2.15  (As of 12-08-2024)
+Make sure you download msi file, i.e. the installer
+MongoDB Compass (GUI App to use Mongo DB)
+https://www.mongodb.com/try/download/compass
+Version: 1.43.5  (As of 12-08-2024)
+Make sure you download exe file (The only available file)
+------------------------------------------------
+2. Download Node
+https://nodejs.org/en/download/
+
+Double Click the downloaded file and follow instructions and install.
+
+npm --version
+node --version
+
+npm is the manager of the node packages
+node is the development platform 
+node is the advanced JS framework
+------------------------------------------------
+Using Node:
+
+Create a folder named "mern"
+Inside this folder, create the project folder named "tutorialapp"
+Inside this folder, create 2 folders named "client" or "front_end" and "server" or "back_end"
+Now go inside the folder "server" and in the address bar, type cmd and hit enter:
+Now run the following commands:
+
+$ npm init
+OR
+$ npm init -y (This command assigns default values for all the data that is expected during creation of a project). This data, anyhow, we can alter them later.
+
+1. The above command creates a node based project
+2. It asks for package name: tutorials-api-app
+It gives a default version: 1.0.0
+We can accept the same or give a new one
+3. Prompts for Description: tutorial app using node express mongoose mongodb app
+4. "entry point" : default it shows "index.js"
+We shall change it to "server.js"
+5. test command: (keep it empty)
+6. git repository: (keep it empty)
+7. keywords: (keep it empty)
+8. author: Nithin
+9. license: "ISC"
+
+Now it shows all the data we entered in form of a JSON and asks for confirmation as follows:
+Is this OK? (yes) yes
+
+CONFIRMATION MESSAGE:
+npm notice
+npm notice New major version of npm available! 8.19.2 -> 9.1.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v9.1.2
+npm notice Run 
+$ npm install -g npm@9.1.2 to update!
+npm notice
+-------------------------------------------
+Now, a prompt is created with a path under "server" folder
+Here give the below command:
+$ npm install express mongoose cors --save   
+[--save means it saves/install the files in the local project folder]
+
+The above command connects to internet and downloads and installs expressJS, mongoose library and cors (cross origin http request protocols) locally in our project sub folder named "node_modules"
+
+$ npx .
+The above command runs our project or the specified file
+Alternate command for the above commad is:
+node server.js
+
+Now, install VISUAL STUDIO CODE (use the below link)
+https://code.visualstudio.com/download
+
+Goto File Explorer, open the srm_mern_learning folder:
+Go to Address bar and run cmd
+Now Run/Open the VS Code using the command:
+$ code .
+
+Now Right click on the server folder and create a file "server.js"
+Add the below code in the file:
+console.log("Welcome to MERN")
+
+Now in the command prompt, run the below code:
+node server.js
+------------------------------------------------
+console.log("Welcome to MERN")
+let a = 20
+let b = 30
+let c = a + b
+console.log(a, b, c)
+
+c = 30
+console.log(b == c)
+c = "30"
+console.log(b == c)
+console.log(b === c)
+
+console.log("Hello World");
+let a = 10
+let b = 20
+let c = a + b 
+console.log(a,b,c)
+
+function findSum(p,q)
+{
+    return p + q;
+}
+console.log(findSum(10,20))
+
+const doSum = (p, q) => {
+    return p + q;
+};
+console.log(doSum(10,20))
+
+const doSquare = p => p * p;
+console.log(doSquare(10))
+
+const  { firstNumber }  = require('./one.js')
+console.log(firstNumber)
+--------------------
+one.js
+--------------------
+const firstNumber = 10;
+const secondNumber = 20;
+
+module.exports = { firstNumber, 
+    secondNumber}
+-------------------------------------------------------------	
+// JSON object  (10)
+//  plain JSON  (10.1)
+//      -- attach attributes or functions after JSON object is formed   (10.1.1)
+//  JSON object by function based class (object-based javascript)   (10.2)
+//      -- to attach the functions to the created class, use prototype (10.2.1)
+//  JSON object by class based type (object-oriented javascript)    (10.3)
+//      inheritance (10.3.1)
+
+const busOne = {
+    busNumber: "TN01-A1122",
+    source:"Chennai",
+    destination: "Mysore",
+    seatsCapacity: 30,
+    bookedTickets:20,
+    availableTickets:function(){
+        return this.seatsCapacity - this.bookedTickets;
+    }
+};
+
+console.log()
+console.log('Bus One:');
+console.log(busOne);
+console.log('Available Tickets:',busOne.availableTickets());
+console.log('Bus Number:',busOne.busNumber);
+
+busOne.findBookedPercentage = function(){
+    return Math.round((this.bookedTickets / this.seatsCapacity) * 100);
+}
+
+console.log()
+console.log('Bus One:');
+console.log(busOne);
+console.log('Available Tickets:',busOne.availableTickets());
+console.log('Booking Percentage:',busOne.findBookedPercentage());
+
+//*function based class (object-based class)** //Javascript syntax
+function Train(trainNumber, source, destination, seatsCapacity, bookedTickets){
+    this.trainNumber = trainNumber;
+    this.source = source;
+    this.destination = destination;
+    this.seatsCapacity = seatsCapacity;
+    this.bookedTickets = bookedTickets;
+    this.availableTickets = function(){
+        return this.seatsCapacity - this.bookedTickets;
+    }
+}
+
+//now, 'Train' becomes class to instantiate objects
+let trainOne = new Train('3322','Trichy','Mysore',400,310);
+let trainTwo = new Train('2233','Mysore','Trichy',300,200);
+console.log()
+console.log('Train One:');
+console.log(trainOne);
+console.log('Available Tickets:',trainOne.availableTickets());
+
+console.log()
+console.log('Train Two:');
+console.log(trainTwo);
+console.log('Available Tickets:',trainTwo.availableTickets());
+
+//add member to class
+Train.prototype.findBookedPercentage = function(){
+    return Math.round((this.bookedTickets / this.seatsCapacity) * 100);
+}
+console.log()
+console.log('Train One:');
+console.log(trainOne);
+console.log('Available Tickets:',trainOne.availableTickets());
+console.log('Booking Percentage:',trainOne.findBookedPercentage());
+
+console.log()
+console.log('Train Two:');
+console.log(trainTwo);
+console.log('Available Tickets:',trainTwo.availableTickets());
+console.log('Booking Percentage:',trainTwo.findBookedPercentage());
+
+//* class (object-oriented)*
+class Flight{
+    trainNumber = '';
+    source = '';
+    destination = '';
+    seatsCapacity = 0;
+    bookedTickets = 0;
+    constructor(trainNumber, source, destination, seatsCapacity, bookedTickets){
+        this.trainNumber = trainNumber;
+        this.source = source;
+        this.destination = destination;
+        this.seatsCapacity = seatsCapacity;
+        this.bookedTickets = bookedTickets;
+    }
+    
+    availableTickets(){
+        return this.seatsCapacity - this.bookedTickets;
+    }
+}
+--------------------------------------------------------------
+//inheritance
+class FlightPlus extends Flight {
+    constructor(trainNumber, source, destination, seatsCapacity, bookedTickets){
+        super(trainNumber, source, destination, seatsCapacity, bookedTickets);
+    }
+    findBookedPercentage(){
+        return Math.round((this.bookedTickets / this.seatsCapacity) * 100);
+    }
+}
+
+//instance of Flight and instance of FlightPlus
+let flightOne = new Flight('A-012','Trichy','Mysore',400,310);
+let flightTwo = new FlightPlus('A-014','Mysore','Trichy',300,200);
+console.log()
+console.log('Flight One:');
+console.log(flightOne);
+console.log('Available Tickets:',flightOne.availableTickets());
+
+console.log()
+console.log('Flight Two:');
+console.log(flightTwo);
+console.log('Available Tickets:',flightTwo.availableTickets());
+console.log('Booking Percentage:',flightTwo.findBookedPercentage());
+-------------------------------------------------------------
+const mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+
+const url = "mongodb://localhost:27017/bus_app";
+
+mongoose.connect(url, {useNewUrlParser: true,useUnifiedTopology: true})
+    .then(() => {
+        console.log("Connected to database");
+    })
+    .catch(err => {
+        console.log("Cannot connect to database", err);
+        process.exit();
+    })
+
+const busSchema = mongoose.Schema(
+    {
+        busNumber: String,
+        source: String,
+        destination: String,
+        seatsCapacity: Number
+    },
+    {
+        timestamps: false
+    }
+);
+
+busSchema.method("toJSON", function() {
+    const { __v, _id, ...object } = this.toObject();
+    object.id = _id;
+    return object;
+  });
+
+const BusModel = mongoose.model("bus",busSchema);
+
+const busOne = {
+    busNumber:"TN01-A1030",
+    source: "Chennai",
+    destination:"Mysore",
+    seatsCapacity: 30
+};
+
+BusModel.create(busOne)
+.then(data=>{
+    console.log("Created Bus:",data.toJSON());
+})
+.catch(err=>{
+    console.log("Error in creating bus",err);
+})
+
+console.log("I am end of app...")
+----------------------------------------------
+create
+find
+findById
+findByIdAndUpdate
+findByIdAndRemove
+------------------------------------------
+Server End
+	$npm init
+	$npm install express mongoose@5.0.0 cors --save
+	
+	To run:
+	$node server.js
+	
+Client End:
+	$npx create-react-app flight-ui-app
+	$cd flight-ui-app
+	$npm install bootstrap@4.6.0 react-router-dom axios --save
+	
+	To run: 
+	$npm start
+	
+{
+       "airlineName": "Indigo",
+        "flightNumber": "I-019",
+        "source": "Bangalore",
+        "destination": "Mysore",
+        "seatsCapacity": 160,
+        "travelDate": "2022-11-29",
+        "ticketFare": 7500.0
+}

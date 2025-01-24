@@ -1,0 +1,945 @@
+JAVASCRIPT ES5 AND ES6 NOTES:
+
+IMPORTANT:
+-> There is no such thing as a JSON object.
+-> JSON is a text format, not an object format.
+-> There is JSON text and Javascript objects. The two are completely different things.
+
+Values in a JSON formatted string are:
+false / null / true / object / array / number / String
+
+In ES5/ES6, 'E' stands for: European Computer Manufacturers Association (ECMA).
+
+Concepts:
+let/const/var
+objects
+this
+arrow functions
+destrcuturing
+spread
+classes
+modules
+
+var:
+It must be used when we need a variable with function scope.
+We can use it also for global variables too.
+
+let:
+It must be used as a block variable. Once, control goes out of the block, its scope is gone, i.e., outside the block where it is declared, its life would have already gone!
+
+for(let i = 1; i <= 5; i++) {
+	console.log(i);
+}
+console.log(i); // Error. 'i' is out of scope
+O/P:
+1
+2
+3
+4
+5
+-----
+for(var i = 1; i <= 5; i++)
+	console.log(i);
+console.log(i); // The variable 'i' is still accessible.
+O/P:
+1
+2
+3
+4
+5
+6
+
+let:
+It must be prefered over using var. variables declared as let have block scope.
+for(var i = 1; i <= 5; i++)
+	console.log(i);
+console.log(i); // ERROR: undefined variable 'i'. Note that scope of 'i' is only within the for-loop.
+
+const:
+const was introduced in ES6.
+const num = 10;
+num = 'nithin' // ERROR. Because 'num' is read only variable.
+Note: Const too has Block Scope. const is implicitly let.
+-----------------------
+// Program to understand the const keyword
+let i = 1;
+for(const j = 3; i <=5; i++) {
+	console.log(i + "  " + j)
+    j++; // TypeError. Trying to mutate/modify READ-ONLY-VARIABLE
+}
+console.log("j = " + j) // ReferenceError. 'j' is out of scope 
+
+// Thus we learnt that const variables too are block/local variables and their values can only be initialized.
+------------------
+Objects:
+Objects in JS are JSON and they are defined using key-value pairs.
+Note that functions and methods are also objects in JS. They have properties and methods which we can make use of.
+
+/*
+const trainer = {
+	name : 'Nithin',
+	tech : function() { // ES5 syntax to create a method
+		console.log("C++ AIML MERN Trainer")
+	}
+}
+trainer.tech(); // Calling the Method of the object 'trainer'
+Prints: C++ AIML MERN Trainer
+*/
+
+/*
+const trainer = {
+	name : 'Nithin',
+	tech1() {  // ES6 Syntax to define a Method
+
+ 		console.log("AIML JavaFS Trainer")
+	},
+	tech2() {  // ES6 Syntax to define a Method
+		console.log("C++ MERN Trainer")
+	}
+};
+
+function func(param) {
+	trainer.tech1(); // Call to the method tech1()
+	trainer['name'] = 'Nithin Belamkar' // name of the trainer object modified
+	trainer[param]();
+}
+func('tech1');
+*/
+
+/*
+const trainer = {
+	name : 'Nithin',
+	tech1() {  // ES6 Syntax to define a Method
+		console.log("AIML JavaFS Trainer")
+	},
+	tech2() { 
+		console.log("C++ MERN Trainer")
+	},
+}
+function func(param1, param2, param3) {
+	trainer.tech1(); // Call to the method tech1()
+	trainer['name'] = 'Nithin Belamkar' // name of the trainer object modified. Note how we HARD-CODED the field of trainer. This is same as trainer.name = 'Nithin Belamkar'
+	trainer[param1]();
+	console.log(trainer.name);
+	trainer[param2.value] = param3; // Doesn't change/modify trainer.name
+	console.log(trainer.name);
+	trainer[param2] = param3; // 
+	console.log(trainer.name); // 'Nithin Neelakanta Rao'
+	console.log(param2.value); // undefined
+	console.log(param2); // Prints 'name' which is the value of the variable 'param2'
+}
+
+func('tech2', 'name', 'Nithin Neelakanta Rao');
+
+this:
+/*
+const trainer = {
+	name : 'Nithin',
+	tech1() { 
+		console.log(this.name);
+	}
+};
+
+trainer.tech1(); // Prints Nithin
+trainer.name = 'Belamkar'
+trainer.tech1(); // Prints Belamkar
+*/
+
+/*
+const trainer = {
+	name : 'Nithin',
+	tech1() { 
+		console.log(this);
+	}
+};
+trainer.tech1(); // Prints: { name: 'Nithin', tech1: [Function: tech1] }
+*/
+
+/*
+const trainer = {
+	name : 'Nithin',
+	tech() { 
+		console.log(this);
+		return 5;
+	}
+};
+
+const var1 = trainer.tech; // var1 is a reference to trainer.tech method which is a member of trainer object.
+console.log(var1); // Prints: [Function: tech]
+const var2 = trainer.tech(); // Calling the method and storing the return value of the method in var2
+console.log(var2 + "   " + typeof(var2)); // Prints:  5  number
+var1();  //PRINTS HUGE AMOUNT OF INFO, when the program is run using CLI node.  WHATS THAT???
+num = var1();  
+
+// NOTE: methods/functions in JS are objects. They have properties and methods which we can make use of. Here var1 is a global variable and var1() becomes a global function or STAND-ALONE OBJECT. Also, as we know now, var1() is also an object and thus when we access, 'this', it refers to the global object which is the window object (in the browser).
+
+// Thus, here the 'this' in the tech() refers to the global object which is the window object, because it is being accessed by the global variable 'var1'. Hence this instruction prints/returns the Global window Object. This is because, we are calling the function globally or in other words, from outside of an object.
+Also note that, if the strict mode is enabled, it returns undefined.
+Hence, if we run this code as a React code, it returns undefined, because the STRICT MODE is enabled by default in ReactJS.
+
+trainer.tech(); // Here note that the 'this' refers to the trainer object which is returned.
+*/
+
+/*
+const student = {
+	name : 'mani',
+	techStudent() {
+		console.log(this);
+	}
+};
+
+const trainer = {
+	name : 'Nithin',
+	techTrainer() {
+		console.log(this);
+	}
+};
+
+const walk1 = trainer.techTrainer.bind(student);
+walk1();
+
+const walk2 = trainer.techTrainer;
+walk2();
+
+const walk3 = trainer.techTrai.bind(trainer);
+walk3();
+
+C		: NULL
+C++		: nullptr
+java	: null
+Python	: None
+JS		: Undefined
+
+trainer[undefined] = 'hello'
+// Here undefined is 1st converted as string 'undefined'. And a new attribute is added to the trainer object. Thus, in Javascript if there is no attribute available which we are trying to access, it will not throw an error, rather it creates the attribute.
+// Conclusion: If json has undefined as attribute, first it is converted as string 'undefined'.
+console.log(trainer.undefined)
+console.log(trainer)
+
+trainer['undefined'] = 'hello'
+// Explicitly converting undefined to string and adding it as an attribute.
+console.log(trainer.undefined)
+console.log(trainer)
+*/
+
+Arrow function:
+Example1:
+const square = function(param) {
+	return param * param;
+}
+// Above is the ECMA Script5 syntax
+
+const square = (param) => {
+	return param * param;
+}
+
+const square = param => param * param; // Tiny/Tidy syntax
+/*
+-> Above is the ECMA Script6 syntax. The function keyword is not required.
+-> Thick arrow is used after the parameter list.
+-> The Parantheis is optional if only one parameter is passed.
+-> Empty () are necessary if no parameters are passed.
+-> Even the Braces are not necessary when the body is a single statement. Note that the return statement too MUST NOT be given.
+*/
+
+const square = (param) => param * param;
+console.log(square(9))
+
+Example2:
+jobs = [
+	{id : 1, designation: 'tester',    isActive: true},
+	{id : 2, designation: 'developer', isActive: true},
+	{id : 3, designation: 'architect', isActive: false}
+];
+
+const activeJobs = jobs.filter(function(job) { return job.isActive; });
+// Above is the ECMA Script5 syntax. And below is the ES6 Syntax
+const activeJobs = jobs.filter( job => job.isActive );
+
+NOTE:
+The Arrow functions do NOT REBIND 'this'
+
+/*
+jobs = [
+	{id : 1, isActive: true},
+	{id : 2, isActive: true},
+	{id : 3, isActive: false}
+];
+
+const activeJobs1 = jobs.filter(function(job) { return job.isActive; });
+const activeJobs2 = jobs.filter(job => job.isActive);
+console.log(activeJobs1);
+console.log(activeJobs2);
+*/
+
+const person1 = {
+	talk() {
+		console.log('this:', this);
+	}
+};
+person1.talk(); // Here the method is called from within the object and hence this refers to the object itself.
+
+const person2 = {
+	talk() {
+		setTimeout(function() {
+			console.log('this:', this);	
+		}, 1000);
+	}
+};
+person2.talk();
+/*
+-> Here though the talk() is method of the object person2, we are getting window object in the O/P because we are accessing 'this' from within a CALL-BACK function.
+-> Though the CALL-BACK function is defined inside setTimeout() which is inturn defined inside talk() method, the CALL-BACK function() is NOT PART OF THE OBEJCT person2.
+-> Thus it is called as a STAND-ALONE Function and hence the window object.
+-> Also Note that, when we run this in ReactJS, the strict mode doesn't apply on CALL-BACK Function and hence we do NOT GET undefined.
+-> We can over come this by making the CALL-BACK Function Arrow function. And the person2 object is implicitly binded. No need to call the bind() explicitly.
+*/
+
+const person3 = {
+	talk() {
+		let self1 = this;
+		setTimeout(function() {
+			console.log('this:', self1);	
+		}, 1000);
+	}
+};
+person3.talk();
+// The above syntax is of ES5 to bind the person3 object with the CALL-BACK function.
+
+const person4 = {
+	talk() {
+		setTimeout(() => {
+			console.log('this:', this);	
+		}, 1000);
+	}
+};
+person4.talk();
+----------------------------------
+Array.map():
+Used to render a list of items or to access all the elements of the Array one by one.
+
+const colors = ['red', 'blue', 'green']
+colors.map(function(item) {
+	return '<li>' + item + '</li>';
+});
+
+const colors = ['red', 'blue', 'green']
+console.log(colors.map(function(item) {
+	return '<li>' + item + '</li>';
+}));
+
+-> Here the map() iterates over the colors list[].
+-> Each element is passed to the CALL-BACK function as an Arg by the map()
+-> Thus the map() method takes the CALL-BACK function as it's Arg.
+-> The map() creates a new list/Array and returns it. Hence we must define a new Array as shown:
+const items = colors.map(function(item) {
+	return '<li>' + item + '</li>';
+});
+
+Now, do the same using ES6 Arrow function.
+
+const items = colors.map(item => '<li>' + item + '</li>');
+
+Now the above code can be improved further by using the ES6 feature named TEMPLATE LITERAL or Back-Ticks.
+
+${} This is called as "Argument Place Holder" and what ever we mention inside it is a variable and helps us to overcome Hard-Coding.
+
+fruits = ['orange', 'apple', 'banana']
+const items = fruits.map(fruit => `<li> ${fruit} '</li>`);
+-------------------------------
+const trainer = {
+	name : this,
+	tech1() {
+		console.log('this:', this);
+	},
+	tech2 : () => {
+		console.log('this:', this.name);
+	}
+};
+
+const walk1 = trainer.tech1; // this is not binded to the object, hence the global object
+walk1();
+
+const walk2 = trainer.tech2; // this is binded to the object because of arrow method and hence the current object which is trainer.
+walk2();
+
+In the above program, we have used an Arrow Method within the trainer object.
+Kindly note that, 'this' will NOT be set to the object itself. This is because, an Arrow Function uses the Lexical form of 'this' and thus, 'this' refers to the global object (window).
+To make the Arrow Method refer to the object itself, use the below code:
+
+const trainer = {
+	name : 'nithin',
+	tech2() {
+		console.log('this:', this);
+	},
+	tech1 : (trainer) => {
+		console.log('this:', trainer.name);
+	}
+};
+
+const walk1 = trainer.tech1;
+walk1(trainer);
+----------------------------------
+Object Destructuring:
+
+const address = {
+	doorNum : 125,
+	city : 'Mysuru',
+	state : 'Karnataka'
+};
+Now, if we have to copy all the fields of the object into individual variables, the code would be:
+
+const doorNum = address.doorNum;
+const city = address.city;
+const state = address.state;
+
+Alternatively, use destructuring:
+
+const {street, city, country } = address;
+
+console.log(street); // undefined
+console.log(city); // Mysuru
+console.log(state); // Error
+-------------------
+const address = {
+	doorNum : 125,
+	city : 'Mysuru',
+	state : 'Karnataka'
+};
+while destrcuturing, the names must match.
+/*
+const {doorNum, city, state } = address;
+
+console.log(doorNum);
+console.log(city);
+console.log(state);
+*/
+//--------------------------
+// Should we wish to use different names for the individual vars representing the fields of the obtect, then:
+const {city:place, state:st, street } = address;
+// Also note that, using this syntax, we can destructure only those fields that we wish to destructure.
+
+console.log(place);
+console.log(st);
+console.log(street); // undefined
+-------------------------------
+SPREAD OPERATOR:
+It is represented using 3 dots
+
+const first = [2, 4, 6];
+const second = [3, 5, 7];
+
+const allNumbers1 = first.concat(second) // Old way of doing
+const allNumbers2 = [...first, ...second]
+const allNumbers3 = [...first, [2, 4], ...second];
+console.log(allNumbers3);
+const allNumbers4 = [...first, ...[2, 4], ...second];
+console.log(allNumbers4);
+
+// Note the difference between allNumbers3 and allNumbers4
+
+We can spread not just lists, but also objects.
+
+const first = {name : 'Nithin', age:40}
+const second = {place : 'Mysuru'}
+
+const person = {...first, ...second, gender : 'male'}
+
+console.log(person)
+-----------------------------
+CLASSES:
+JS has no classes. It is ReactJS where we use Classes and also do Inheritance.
+
+class Person {
+	constructor(name, gender) {
+		this.name = name;
+		this.gender = gender;
+	}
+	work() {
+		console.log(`${this.name} does house hold work`);
+	}
+}
+
+class Student extends Person {
+	constructor(name, gender, grade) {
+		super(name, gender);
+		this.grade = grade;
+	}
+	study() {
+		console.log('student studies');
+	}
+	//overridden method
+	work() {
+		//super();
+		console.log('student does study work');
+	}
+	details() {
+		console.log(`${this.name} is ${this.gender} and is from ${this.grade} grade`);
+	}
+}
+
+const stud = new Student('Nithin', 'Male', '5th');
+stud.work();
+stud.details();
+stud.study();
+---------------------------
+OO JS:
+Creating Object Literals
+Factories and Constructors
+Primitives and Reference Types
+Working with Properties
+Private Properties
+
+Object Literal Syntax:
+JS Object is Key-value pairs
+
+const rectangle = {
+	length : 3,
+	breadth : 6,
+	location : {
+		x : 2,
+		y : 3
+	},
+	draw : function() {
+		console.log('Rectangle drawn');
+	}
+};
+rectangle.draw();
+Here rectangle is an Object with 3 properties and one method namely draw() which we have invoked. Note that the 3rd field, namely location itself is an object (json).
+
+We have created one rectangle object. If we need another object, we must duplicate the above code and assign different values to length and breadth. However, if we need 10 or 100 objects, we need to duplicate the code so many times. Further, if the object has not one but 10 methods in it, and such several objects are created, and suppose there is an error in one of the methods, then we must update all the methods in all the objects.
+Thus the solution for this issue is to have a factory function which returns an object. As follows:
+-------------------
+Factory Function:
+
+function createRectangle(len, bred) {
+	return {
+		length  : len,
+		breadth : bread,
+		draw : function() {
+			console.log('Reactangle')
+		}
+	};
+}
+// The above code is ES5 syntax. Below is the ES6 version
+function createRectangle(length, breadth) {
+	return {
+		length,
+		breadth,
+		draw1: function() {
+			console.log(`Rectangle with length= ${this.length} and breadth= ${this.breadth}`);
+		},
+		draw2 : function(len, bre) {
+			console.log(`Rectangle with len= ${len} and bre= ${bre}`);
+		}
+	}
+}
+
+const rect = createRectangle(4, 5);
+rect.draw1();
+rect.draw2(rect.length, rect.breadth);
+
+IMPORTANT NOTE:
+Every object in JS has a property called constructor. It references that which creates the object. Thus, it is constructor which creates the object. It can be viewed with the help of object created as follows.
+
+If we type: rect.constructor
+in the browser, it would give us the following code:
+f Object() { [native code] }
+
+Here Object() is the JS built in constructor similar to Object() of Java.
+
+In the above example, using the factory function we can create any number of objects with different states. Further if there is any error in the code, only one copy must be modified.
+---------------------------
+Constructor function:
+
+function Circle(radius) {
+	this.radius = radius;
+	this.draw = function() {
+		console.log('Draw Circle');
+	}
+}
+const circle = new Circle(5);
+
+Here the Circle function is acting similar to a class, whose object we are creating.
+
+Note:
+In browser, the global object is the window object.
+In Node environment, the global object is global.
+
+const circle = Circle(5);
+Note that in the above code, new operator is not used. This will not create Circle object, but it creates the global object.
+
+Now, in the browser if we type: circle.constructor 
+it returns:
+f Circle(radius) {
+	this.radius = radius;
+	this.draw = function() {
+		console.log('Draw Circle');
+	}
+}
+------------------
+HOISTING:
+for(let i = 0; i < 2; i++){
+    setTimeout(
+        () => {
+            console.log(i);
+        },1000
+    )
+}
+-------------------------
+// Object Literal Syntax
+const trainer1 = {
+	name : 'Nithin',
+	tech1() {  // ES6 Syntax to define a Method
+		console.log("AIML JavaFS Trainer")
+	},
+	tech2() { 
+		console.log("C++ MERN Trainer")
+	},
+};
+
+const trainer = {
+	name : 'Nithin',
+	tech () { 
+		console.log(this);
+		return 5;
+	}
+};
+
+const var1 = trainer.tech; // var1 is a reference to trainer.tech method which is a member of trainer object.
+console.log(var1); // Prints: [Function: tech]
+const var2 = trainer.tech(); // Calling the method and storing the return value of the method in var2
+console.log(var2 + "   " + typeof(var2)); // Prints:  5  number
+var1(); // var1 here referes to tech() in trainer object. Since we are printing 'this' and by default 'this' refers to the global object in node environment. We see the global object (big output).
+console.log(var1 + "   " + typeof(var1)); // It prints the function definition of tech() because var1 is reference to tech() and typeof(var1) is 'function'
+-----------------------------------------------------------
+when ever we create an object using object literal syntax, as below:
+let x = {};
+It is converted implicitly as:
+let x = new Object();
+Here the object is created using the Object() constructor function.
+
+Similarly, when ever we create 
+let myName = new String(); // Alternatively we can create using `` "" ''
+let value = Boolean(); // Alternatively we can create using literals true or false
+let age = Number(); //Alternatively use number literals like 10, 2, 4, 5
+----------------------------------------------
+Functions in JS are objects.
+Note how we are creating a function and later we are creating an object out of the function.
+
+function Circle(radius) {
+	this.radius = radius;
+	this.draw = function() {
+		console.log(`Circle was drawn of radius ${this.radius}`);
+	}
+}
+const circle1 = new Circle(2);
+circle1.draw()
+
+const Square = new Function('side', `
+	this.side = side;
+	this.draw = function() {
+		console.log('Square of side ${this.side} is drawn')
+	}
+`);
+const circle2 = new Square(5)
+circle2.draw()
+console.log(circle1)
+console.log(circle2)
+-----------------------------------------------------
+Pre-defined call() in JS:
+It can be used to invoke (call) a method with an owner object as an argument (parameter).
+With call(), an object can use a method belonging to another object.
+This example calls the fullName method of person, using it on person1:
+Example:
+
+const person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+const person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+
+myName = person.fullName.call(person1);
+console.log(myName) // "John Doe"
+
+person.fullName.call(person2); // "Mary Doe"
+-------------------------------------------
+Types in JS:
+1. Value Types (Primitives):
+	Number, String Boolean, Symbol (it is new in ES6), undefined, null
+2. Reference Types (Objects):
+	Object, Function, Array
+	
+NOTE:
+Primitives are copied by values and Objects are copied by references.
+Example1:
+x = 10
+y = x
+x = 20
+console.log(x, '  ', y); // 20  10
+
+person1 = {age: 20};
+person2 = person1;
+
+console.log(person1, '  ', person2); // {age: 20}  {age: 20}
+-----------------------------------
+Example2:
+
+let num = 10
+function increaseNum(num) // local variable
+{
+	num++;
+}
+increaseNum(num) // call by value
+console.log(num); // Prints 10
+-------------
+let obj = { value: 10 }
+function increaseNum(num) // reference variable
+{
+	num.value++; 
+}
+increaseNum(obj) // call by reference
+console.log(obj); // Prints 11
+----------------------------------------------------
+Objects in JS are dynamic. We can modify them on the go. We can add or delete properties to/from the object.
+
+const trainer = {
+	name : 'Nithin',
+	tech () { 
+		console.log('MERN Stack');
+		return 'improving fast and better';
+	}
+};
+
+trainer.address = {doorNum: 185, area: 'CHH'}
+OR we can add a new property using [ ]
+trainer['address'] = {doorNum: 185, area: 'CHH'}
+
+The benefit of adding a new property using [] is that the property name too can be given by the user:
+const propertyName = 'address'
+trainer[propertyName] = {doorNum: 185, area: 'CHH'}
+
+To Delete a Property from an Object:
+delete trainer..address;
+OR
+delete trainer['address'];
+----------------------------------
+ENUMERATION PROPERTIES:
+
+const trainer = {
+	name : 'Nithin',
+	tech () { 
+		console.log('MERN Stack');
+		return 'improving fast and better';
+	}
+};
+trainer['address'] = {doorNum: 185, area: 'CHH'}
+
+// Now we can access the keys of the object:
+for (let key in trainer) {
+	console.log(key)
+}
+
+// we can access the keys of the object:
+for (let key in trainer) {
+	console.log(trainer[key])
+}
+
+// to print only the properties but not methods:
+for (let key in trainer) {
+	if(typeof trainer[key] != 'function')
+		console.log(trainer[key])
+}
+
+keys = Object.keys(trainer) // returns the keys of the given object.
+console.log(keys)
+
+// we can check if a key is available in an object:
+if ('tech' in trainer)
+	console.log('trainer has tech data available')
+
+if ('phoneNum' in trainer)
+	console.log('trainer has phoneNum data available')
+-------------------------------------------
+INHERITANCE:
+Avoid writing redundant code.
+Pull out the common code from different classes and put it in a common class which all these classes can inhetir from.
+
+ABSTRACTION:
+Hide the details, show the essentials
+
+private properties and methods in JS:
+
+In JS we to use private members, one technique is as below:
+
+function Circle(radius) {
+	this.radius = radius;
+	
+	let defaultLocation = {x:0, y:0}; // This acts as private member. Note that it is a local variable of the function and not the property of the object.
+	
+	let setSpecificRadius = function(specificRadius) {
+		// ......
+	}
+	this.draw function() {
+		setSpecificRadius(1.5)
+		defaultLocation = SOME VALUE // we can access the local variable of the parent function in the child function. This is called as CLOSURE concept in JS
+		this.radius = 4.5 // accessing the instance variable
+	}
+}
+-------------------------------------------
+GETTERS & SETTERS:
+
+how to use getter:
+function Circle(radius) {
+	this.radius = radius;
+	
+	let defaultLocation = {x:0, y:0};
+	
+	this.getDefaultLocation = function() {
+		return defaultLocation;
+	};
+	
+	this.draw function() {
+		console.log('draw')
+	}
+}
+
+const circle = new Circle(5.5);
+circle.draw();
+// We can access the default location of the circle as below:
+circle.getDefaultLocation();
+
+Alternatively, we can use the below ES6 version using Object.defineProperty() which allows us to access the defaultLocation as: console.log(circle.defaultLocation);
+
+function Circle(radius) {
+	this.radius = radius;
+	
+	let defaultLocation = {x:0, y:0};
+	
+	this.draw = function() {
+		console.log('draw')
+	}
+	
+	Object.defineProperty(this, 'defaultLocation', { get: function() {
+			return defaultLocation;
+		}
+	});
+}
+
+const circle = new Circle(5.5);
+circle.draw();
+console.log(circle.defaultLocation);
+-----------------------------------------
+how to use setter:
+
+function Circle(radius) {
+	this.radius = radius;
+	
+	let defaultLocation = {x:0, y:0};
+	
+	this.draw = function() {
+		console.log(`radius = ${this.radius}`)
+	}
+	
+	Object.defineProperty(this, 'defaultLocation', { get: function() {
+			return defaultLocation;
+		},
+	set: function(value) {
+			if(value.x == 0 && value.y == 0)
+				throw new Error('Invalid Location')
+			defaultLocation = value
+		}
+	});
+}
+
+const circle = new Circle(5.5);
+console.log(circle.defaultLocation);
+circle.defaultLocation = {x:1, y:2}
+console.log(circle.defaultLocation);
+circle.draw();
+-----------------------------------------------------
+exercise:
+
+const sw = new StopWatch()
+sw.duration // The only property which counts the duration in seconds
+sw.start() // starts the stop watch
+sw.start() // Error. Cannot start it when already started
+sw.stop()
+sw.stop() // cannot stop it twice in a row
+sw.reset() // stops the stop watch if started. Also sets the duration to 0
+
+function StopWatch() {
+	let startTime, endTime, running, duration = 0;
+	
+	this.start = function() {
+		if(running)
+			throw new Error('Stop Watch already running')
+		running = true
+		startTime = new Date()
+	}
+	
+	this.stop = function() {
+		if(!running)
+			throw new Error('Stop Watch already stopped')
+		running = false
+		endTime = new Date()
+		seconds = endTime,getTime() - starteTime.getTime() / 1000;
+		duration += seconds
+	}
+	
+	this.reset = function() {
+		startTime = null
+		endTime = null
+		running = false
+		duration = 0
+	}
+	
+	Object.defineProperty(this, 'duration', { 
+		get: function() { return duration; }
+	});
+}
+-----------------------------------------------
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('What is your name? ', ans => {
+  console.log('Your name is', ans);
+  rl.close();
+});
+
+----------------------------------------------
+const readline = require('readline');
+
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+const prompt = (query) => new Promise((resolve) => rl.question(query, resolve));
+
+// Usage inside aync function do not need closure demo only
+(async() => {
+  try {
+    const name = await prompt("What's your name: ");
+    // Can use name for next question if needed
+    const lastName = await prompt(`Hello ${name}, what's your last name?: `);
+    // Can prompt multiple times
+    console.log(name, lastName);
+    rl.close();
+  } catch (e) {
+    console.error("Unable to prompt", e);
+  }
+})();
+
+// When done reading prompt, exit program 
+rl.on('close', () => process.exit(0));
+--------------------------------------------------
+
