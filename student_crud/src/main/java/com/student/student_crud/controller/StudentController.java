@@ -6,5 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/emp")
 public class StudentController {
-
+	@Autowired
+	private StudentService studentService;
 }

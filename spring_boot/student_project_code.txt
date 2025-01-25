@@ -13,7 +13,7 @@ public class StudentService {
 	@Autowired
 	private StudentRepository studentRepository;
 
-	public String createStudent(StudentController student) {
+	public String createStudent(StudentDao student) {
 		try {
 			Student stud = Student.builder().name(student.getName()).semester(student.getSemester())
 					.branch(student.getBranch()).build();
@@ -54,7 +54,6 @@ public class StudentService {
 		return "Student record updated";
 	}
 }
-
 ---------------------------------------
 Inside the package model:
 
@@ -62,10 +61,28 @@ Inside the package model:
 @Data
 @Builder
 public class Student {
+	@Id
 	private String id;
+	@Field(name = "student_name")
 	private String name;
 	private int semester;
 	private String branch;
 }
 --------------------------------------------
-	
+Inside the package controller:
+
+@RestController
+@RequestMapping("/api/emp")
+public class StudentController {
+	@Autowired
+	private StudentService studentService;
+}
+--------------------------------------------
+Inside src/main/resources
+In the file application.properties
+Add the below code: (change name of database)
+
+spring.application.name=student_crud
+
+spring.data.mongodb.uri=mongodb://localhost:27017/nithin_db
+--------------------------------------------
