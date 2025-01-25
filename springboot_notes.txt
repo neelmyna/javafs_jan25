@@ -1,0 +1,39 @@
+SPRING BOOT NOTES:
+
+Create the Project either using the IDE or start.spring.io
+
+Unzip the project file which we got from start.spring.io and cut and paste the folder inside our Repo folder.
+
+Open the STS IDE
+File Menu -> Open projects from file system -> Select the project folder
+
+Now under src/main/java folder you can see an existing package named: com.student.student_crud
+
+Inside this package, create sub packages:
+	com.student.student_crud.controller
+	com.student.student_crud.model
+	com.student.student_crud.repository
+	com.student.student_crud.service
+	
+Now, inside the repository package:
+	Create a new Interface named:
+		@Repository
+		StudentRepository extends MongoRepository<Student, String>
+		
+Create a new class under model package named Student:
+
+@Document(value = "students")
+@Data
+@Builder
+public class Student {
+	private String id;
+	private String name;
+	private int semester;
+	private String branch;
+} 
+
+
+
+
+
+
