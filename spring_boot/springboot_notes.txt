@@ -49,5 +49,65 @@ Annotate:
 
 
 
+Create a service class under service package named:
+	StudentService
+	
+And add the below code in it:
+
+@Autowired
+	private StudentRepository studentRepository;
+
+	public String createStudent(StudentDao student) {
+			try {
+				Student student = Student.builder()
+					.name(student.getName())
+					.semester(student.getSemester())
+					.branch(student.getBranch())
+					.build();
+				studentRepository.save(student);
+			}
+			catch(Exception e) {
+				
+			}
+			return "Student document added";
+	}
+
+public list<Student> getStudents() {
+		List <Student> studentList = new ArrayList<>();
+		try {
+			studentList = studentRepository.findAll();
+		}
+		catch(Exception e) {
+		
+		}
+		return studentList;
+	}
+	
+public String deleteStudent(String id) {
+	try {
+			studentRepository.deleteById(id);
+		}
+		catch(Exception e) {
+		
+		}
+		return "Student record deleted";
+}
+
+public String updateStudent(Student student) {
+	try {
+			Student stud = Student.builder()
+							.id(student.getId())
+							.name(student.getName())
+							.semester(student.getSemester())
+							.branch(student.getBranch())
+							.build();
+			studentRepository.save(stud);
+		}
+		catch(Exception e) {
+		
+		}
+		return "Student record updated";
+}
+
 
 
