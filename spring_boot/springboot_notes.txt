@@ -24,7 +24,9 @@ Now, inside the repository package:
 	Create a new Interface named: StudentRepository
 	
 		@Repository
-		StudentRepository extends MongoRepository<Student, String>
+		StudentRepository extends MongoRepository<Student, String> {
+		
+		}
 		
 Create a new class under model package named: Student
 
@@ -38,6 +40,12 @@ public class Student {
 	private String branch;
 } 
 
+Create a controller class under controller package named:
+	StudentController
+
+Annotate:
+@RestController
+@RequestMapping("/api/student")
 
 
 
