@@ -7,6 +7,11 @@ Unzip the project file which we got from start.spring.io and cut and paste the f
 Open the STS IDE
 File Menu -> Open projects from file system -> Select the project folder
 
+Now Open Application Properties under src/main/resources
+Add the mongodb URL:
+
+spring.data.mongodb.uri=mongodb://localhost:27017/nithin_db
+
 Now under src/main/java folder you can see an existing package named: com.student.student_crud
 
 Inside this package, create sub packages:
@@ -16,11 +21,12 @@ Inside this package, create sub packages:
 	com.student.student_crud.service
 	
 Now, inside the repository package:
-	Create a new Interface named:
+	Create a new Interface named: StudentRepository
+	
 		@Repository
 		StudentRepository extends MongoRepository<Student, String>
 		
-Create a new class under model package named Student:
+Create a new class under model package named: Student
 
 @Document(value = "students")
 @Data
