@@ -1,12 +1,32 @@
 SPRING BOOT NOTES:
 
-Create the Project either using the IDE or start.spring.io
+Create the Project either using the IDE as follows:
+File Menu -> new -> Project -> type: starter
+Select spring starter project
+
+Select Language: java
+version: 17
+packaging: jar
+project: maven
+artifact: student_crud
+group: com.student
+name: student_crud
+package: com.student
+
+Click Next
+Add dependencies:
+type and search in the text box and select these dependencies:
+spring data mongoDb
+lombok
+spring web
+-------------------------------------------
+2nd way to create project is using: start.spring.io
 
 Unzip the project file which we got from start.spring.io and cut and paste the folder inside our Repo folder.
 
 Open the STS IDE
 File Menu -> Open projects from file system -> Select the project folder
-
+---------------------------------------------
 Now Open Application Properties under src/main/resources
 Add the mongodb URL:
 
@@ -19,6 +39,7 @@ Inside this package, create sub packages:
 	com.student.student_crud.model
 	com.student.student_crud.repository
 	com.student.student_crud.service
+	com.student.student_crud.studentdao
 	
 Now, inside the repository package:
 	Create a new Interface named: StudentRepository
@@ -27,8 +48,10 @@ Now, inside the repository package:
 		StudentRepository extends MongoRepository<Student, String> {
 		
 		}
-		
-Create a new class under model package named: Student
+----------------------------------------		
+Create a new class by name "Student" under the package model. 
+Later add the Annotators as given below. 
+Later add the fields of the class as given below.
 
 @Document(value = "students")
 @Data
@@ -38,8 +61,10 @@ public class Student {
 	private String name;
 	private int semester;
 	private String branch;
-} 
+}
 
+
+----------------------------------
 Create a controller class under controller package named:
 	StudentController
 

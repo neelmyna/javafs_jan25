@@ -7,7 +7,6 @@ public interface StudentRepository extends MongoRepository<Student, String>{
 -----------------------------------
 Inside the package service:	
 
-
 @Service
 public class StudentService {
 	@Autowired
@@ -72,10 +71,35 @@ public class Student {
 Inside the package controller:
 
 @RestController
-@RequestMapping("/api/emp")
+@RequestMapping("/api/student")
 public class StudentController {
+
 	@Autowired
 	private StudentService studentService;
+
+	@PostMapping("/create")
+	@ResponseStatus(HttpStatus.CREATED)
+	public String createStudent(@RequestBody StudentDao student) {
+		return studentService.createStudent(student);		
+	}
+	
+	@GetMapping("/get/students")
+	@ResponseStatus(HttpStatus.OK)
+	public list<Student> getStudent() {
+		return studentService.getStudents();	
+	}
+	
+	@GetMapping("/delete/student")
+	@ResponseStatus(HttpStatus.OK)
+	public String deleteStudent(@RequestParam String id) {
+		return studentService.deleteStudent(id);	
+	}
+	
+	@PutMapping("/update")
+	@ResponseStatus(HttpStatus.CREATED)
+	public String updateStudent(@RequestBody StudentDao student) {
+		return studentService.updateStudent(student);
+	}
 }
 --------------------------------------------
 Inside src/main/resources
