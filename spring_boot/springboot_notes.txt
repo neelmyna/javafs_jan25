@@ -47,10 +47,11 @@ Annotate:
 @RestController
 @RequestMapping("/api/student")
 
-
-
 Create a service class under service package named:
 	StudentService
+
+Annotate the class StudentService with:
+@Service
 	
 And add the below code in it:
 

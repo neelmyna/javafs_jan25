@@ -1,0 +1,71 @@
+Inside the package repository:	
+
+@Repository
+public interface StudentRepository extends MongoRepository<Student, String>{
+	
+}
+-----------------------------------
+Inside the package service:	
+
+
+@Service
+public class StudentService {
+	@Autowired
+	private StudentRepository studentRepository;
+
+	public String createStudent(StudentController student) {
+		try {
+			Student stud = Student.builder().name(student.getName()).semester(student.getSemester())
+					.branch(student.getBranch()).build();
+			studentRepository.save(student);
+		} catch (Exception e) {
+
+		}
+		return "Student document added";
+	}
+
+	public List<Student> getStudents() {
+		List<Student> studentList = new ArrayList<>();
+		try {
+			studentList = studentRepository.findAll();
+		} catch (Exception e) {
+
+		}
+		return studentList;
+	}
+
+	public String deleteStudent(String id) {
+		try {
+			studentRepository.deleteById(id);
+		} catch (Exception e) {
+
+		}
+		return "Student record deleted";
+	}
+
+	public String updateStudent(Student student) {
+		try {
+			Student stud = Student.builder().id(student.getId()).name(student.getName()).semester(student.getSemester())
+					.branch(student.getBranch()).build();
+			studentRepository.save(stud);
+		} catch (Exception e) {
+
+		}
+		return "Student record updated";
+	}
+}
+
+---------------------------------------
+Inside the package model:
+
+@Document(value = "students")
+@Data
+@Builder
+public class Student {
+	private String id;
+	private String name;
+	private int semester;
+	private String branch;
+}
+--------------------------------------------
+	
